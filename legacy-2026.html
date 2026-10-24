@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio | Nine</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+SC:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>/* ===== Make left column stretch to match right card height ===== */
+.grid{ align-items: stretch; }           /* 让两列同高对齐 */
+.leftCol{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  height:100%;
+  min-height:100%;
+}
+
+/* 让年贺状卡片自动填充剩余空间（关键） */
+.leftCol #newyear{ flex: 1 1 auto; }
+.leftCol #newyear .cardBody{
+  display:flex;
+  height:100%;
+  align-items:center;
+}
+
+/* 年贺状内容更饱满、更大一些 */
+#newyear .nyLink{
+  width:100%;
+  min-height:160px;          /* 让卡片整体“更高” */
+  padding:16px;
+}
+
+/* 放大像素财神（更显眼） */
+#newyear .nySprite{
+  --px: 7px;                 /* 原来 6px，这里加粗像素颗粒 */
+  border-radius:10px;
+}
+
+/* 标题文字略放大一点（可选，但更好看） */
+#newyear .nyMain{ font-size: 15px; }
+#newyear .nySubText{ font-size: 12px; }
+
+    :root{
+      /* keep your current color direction */
+      --bg1:#fff4db;   /* light orange */
+      --bg2:#e9fff1;   /* light green */
+      --ink:#132016;
+      --muted:rgba(19,32,22,.70);
+
+      --card:#ffffffcc;
+      --stroke:rgba(19,32,22,.20);
+      --stroke2:rgba(19,32,22,.32);
+
+      --orange:#ff8a2a;
+      --green:#33c46a;
+
+      --shadow: 0 14px 40px rgba(0,0,0,.14);
+      --radius:10px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"Noto Sans SC","Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 600px at 12% 15%, rgba(255,138,42,.25), transparent 60%),
+        radial-gradient(900px 650px at 88% 22%, rgba(51,196,106,.22), transparent 60%),
+        radial-gradient(700px 600px at 40% 85%, rgba(255,138,42,.16), transparent 60%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      position:relative;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(19,32,22,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(19,32,22,.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.35;
+      mix-blend-mode:multiply;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:26px 18px 44px;
+      position:relative;
+      z-index:1;
+    }
+
+    /* ===== Top bar ===== */
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      min-width:260px;
+    }
+
+    /* bigger avatar + pixel shadow */
+    .avatar{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      object-fit:cover;
+      border:2px solid var(--ink);
+      image-rendering: pixelated;
+      box-shadow: 6px 6px 0 rgba(19,32,22,.18);
+      background:#fff;
+    }
+
+    .name{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      line-height:1.05;
+    }
+
+    /* bigger pixel name */
+    .name strong{
+      font-family:"Press Start 2P", monospace;
+      font-size:22px;
+      line-height:1.25;
+      letter-spacing:1px;
+    }
+    .name span{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    /* Language switch */
+    .lang{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border:2px solid var(--ink);
+      background:rgba(255,255,255,.55);
+      border-radius:999px;
+      box-shadow: 6px 6px 0 rgba(19,32,22,.14);
+      backdrop-filter: blur(10px);
+    }
+    .lang .label{
+      font-family:"Press Start 2P", monospace;
+      font-size:10px;
+      letter-spacing:.6px;
+      color:rgba(19,32,22,.72);
+    }
+    .seg{ display:flex; gap:6px; }
+    .seg button{
+      border:2px solid transparent;
+      background:transparent;
+      color:rgba(19,32,22,.70);
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      cursor:pointer;
+      transition:.15s ease;
+      font-weight:800;
+    }
+    .seg button:hover{ background:rgba(255,255,255,.75); }
+    .seg button.active{
+      background:#fff;
+      border-color:var(--ink);
+      color:var(--ink);
+    }
+
+    /* ===== Layout ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns:1fr; }
+      .brand{ min-width:unset; }
+    }
+
+    /* ===== Card base ===== */
+    .card{
+      position:relative;
+      border:2px solid var(--ink);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 8px 8px 0 rgba(19,32,22,.12);
+      overflow:hidden;
+      transition:.18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 10px 10px 0 rgba(19,32,22,.16);
+    }
+
+    /* Small enhancement #1: pixel rivets at corners */
+    .card::after{
+      content:"";
+      position:absolute;
+      width:8px;height:8px;
+      background:rgba(19,32,22,.55);
+      border-radius:2px;
+      top:10px; left:10px;
+      box-shadow:
+        calc(100% - 28px) 0 0 rgba(19,32,22,.55),
+        0 calc(100% - 28px) 0 rgba(19,32,22,.55),
+        calc(100% - 28px) calc(100% - 28px) 0 rgba(19,32,22,.55);
+      opacity:.45;
+      pointer-events:none;
+    }
+
+    /* ===== Header UI stronger ===== */
+    .cardHead{
+      position:relative;
+      background: rgba(255,255,255,.70);
+      border-bottom:2px dashed rgba(19,32,22,.26);
+      padding:14px 16px 12px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+    }
+    /* left pixel accent bar */
+    .cardHead::before{
+      content:"";
+      position:absolute;
+      left:12px;
+      top:12px;
+      width:10px;
+      height:calc(100% - 24px);
+      border:2px solid rgba(19,32,22,.30);
+      border-radius:3px;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,138,42,.95) 0 10px,
+          rgba(51,196,106,.95) 10px 20px
+        );
+    }
+
+    .cardHead > div{ padding-left: 18px; }
+
+    /* Small enhancement #2: title icon */
+    .titleLine{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .ticon{
+      width:16px;height:16px;
+      border-radius:3px;
+      border:2px solid rgba(19,32,22,.35);
+      background:
+        linear-gradient(135deg, rgba(255,138,42,.95), rgba(51,196,106,.95));
+      box-shadow: 2px 2px 0 rgba(19,32,22,.10);
+      flex:0 0 auto;
+    }
+
+    .title{
+      font-family:"Press Start 2P", monospace;
+      font-size:13px;
+      letter-spacing:1px;
+      line-height:1.25;
+    }
+    .sub{
+      margin-top:6px;
+      font-size:12px;
+      color:rgba(19,32,22,.70);
+      font-weight:800;
+      line-height:1.2;
+    }
+
+    .cardBody{ padding:14px 16px 16px; }
+    .p{
+      margin:0;
+      color:rgba(19,32,22,.78);
+      font-size:13px;
+      line-height:1.75;
+      font-weight:600;
+    }
+
+    /* Chips (open/email) */
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:2px solid var(--ink);
+      background:#fff;
+      box-shadow: 4px 4px 0 rgba(19,32,22,.12);
+      transition:.15s ease;
+      font-family:"Press Start 2P", monospace;
+      font-size:11px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .chip:hover{ transform: translateY(-1px); }
+    .dot{
+      width:8px;height:8px;
+      border-radius:2px;
+      background:linear-gradient(135deg,var(--orange),var(--green));
+      border:1px solid rgba(19,32,22,.35);
+    }
+
+    /* Video */
+    .videoWrap{
+      position:relative;
+      width:100%;
+      aspect-ratio: 9 / 16;
+      border-radius:8px;
+      overflow:hidden;
+      border:2px solid rgba(19,32,22,.25);
+      background:rgba(19,32,22,.06);
+    }
+    .videoWrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+
+    /* Project list rows */
+    .list{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:11px 12px;
+      border:2px solid rgba(19,32,22,.20);
+      background:rgba(255,255,255,.65);
+      border-radius:10px;
+      font-weight:800;
+    }
+    .row b{ font-size:12px; }
+    .row span{ font-size:12px; color:rgba(19,32,22,.62); font-weight:900; }
+
+    /* Experience bullets */
+    .exp{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .exp li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px 12px;
+      border:2px solid rgba(19,32,22,.18);
+      background:rgba(255,255,255,.62);
+      border-radius:10px;
+    }
+    .exp .badge{
+      flex:0 0 auto;
+      width:10px;height:10px;
+      border-radius:2px;
+      margin-top:4px;
+      background:var(--green);
+      border:1px solid rgba(19,32,22,.35);
+      box-shadow:2px 2px 0 rgba(19,32,22,.10);
+    }
+    .exp p{
+      margin:0;
+      font-size:13px;
+      line-height:1.6;
+      color:rgba(19,32,22,.80);
+      font-weight:700;
+    }
+
+    .footerNote{
+      font-size:12px;
+      color:rgba(19,32,22,.62);
+      margin-top:10px;
+      font-weight:800;
+    }
+    .emailLink{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      font-weight:900;
+    }
+
+    /* ===== NewYear card (pixel 财神) ===== */
+    .nyLink{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:12px;
+      border:2px solid rgba(19,32,22,.18);
+      border-radius:10px;
+      background: rgba(255,255,255,.65);
+      box-shadow: 4px 4px 0 rgba(19,32,22,.10);
+      transition:.15s ease;
+    }
+    .nyLink:hover{ transform: translateY(-1px); box-shadow: 6px 6px 0 rgba(19,32,22,.12); }
+
+    .nyText{ display:flex; flex-direction:column; gap:4px; }
+    .nyMain{
+      font-family:"Press Start 2P", monospace;
+      font-size:14px;
+      letter-spacing:1px;
+    }
+    .nySubText{
+      font-size:12px;
+      font-weight:900;
+      color: rgba(19,32,22,.68);
+    }
+
+    .nySprite{
+      --px: 6px;
+      width: calc(var(--px) * 12);
+      height: calc(var(--px) * 12);
+      border:2px solid rgba(19,32,22,.28);
+      border-radius:8px;
+      background: rgba(255,255,255,.70);
+      position:relative;
+      overflow:hidden;
+      box-shadow: 3px 3px 0 rgba(19,32,22,.10);
+      image-rendering: pixelated;
+      animation: nyBob 1.6s ease-in-out infinite;
+      flex:0 0 auto;
+    }
+
+    .nySprite::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:50%;
+      width: var(--px);
+      height: var(--px);
+      transform: translate(-50%,-50%);
+      background: transparent;
+      box-shadow:
+      /* hat */
+      calc(-3*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc(-2*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc(-1*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc( 0*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc( 1*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc( 2*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc( 3*var(--px)) calc(-5*var(--px)) 0 0 rgba(255,138,42,.95),
+
+      calc(-2*var(--px)) calc(-4*var(--px)) 0 0 rgba(255,138,42,.95),
+      calc(-1*var(--px)) calc(-4*var(--px)) 0 0 rgba(255,255,255,.85),
+      calc( 0*var(--px)) calc(-4*var(--px)) 0 0 rgba(255,255,255,.85),
+      calc( 1*var(--px)) calc(-4*var(--px)) 0 0 rgba(255,255,255,.85),
+      calc( 2*var(--px)) calc(-4*var(--px)) 0 0 rgba(255,138,42,.95),
+
+      /* face */
+      calc(-2*var(--px)) calc(-2*var(--px)) 0 0 rgba(255,224,190,.95),
+      calc(-1*var(--px)) calc(-2*var(--px)) 0 0 rgba(255,224,190,.95),
+      calc( 0*var(--px)) calc(-2*var(--px)) 0 0 rgba(255,224,190,.95),
+      calc( 1*var(--px)) calc(-2*var(--px)) 0 0 rgba(255,224,190,.95),
+      calc( 2*var(--px)) calc(-2*var(--px)) 0 0 rgba(255,224,190,.95),
+
+      /* eyes */
+      calc(-1*var(--px)) calc(-1*var(--px)) 0 0 rgba(19,32,22,.85),
+      calc( 1*var(--px)) calc(-1*var(--px)) 0 0 rgba(19,32,22,.85),
+
+      /* beard */
+      calc(-2*var(--px)) calc( 0*var(--px)) 0 0 rgba(51,196,106,.95),
+      calc(-1*var(--px)) calc( 0*var(--px)) 0 0 rgba(51,196,106,.95),
+      calc( 0*var(--px)) calc( 0*var(--px)) 0 0 rgba(51,196,106,.95),
+      calc( 1*var(--px)) calc( 0*var(--px)) 0 0 rgba(51,196,106,.95),
+      calc( 2*var(--px)) calc( 0*var(--px)) 0 0 rgba(51,196,106,.95),
+
+      /* body */
+      calc(-2*var(--px)) calc( 2*var(--px)) 0 0 rgba(255,138,42,.92),
+      calc(-1*var(--px)) calc( 2*var(--px)) 0 0 rgba(255,138,42,.92),
+      calc( 0*var(--px)) calc( 2*var(--px)) 0 0 rgba(255,138,42,.92),
+      calc( 1*var(--px)) calc( 2*var(--px)) 0 0 rgba(255,138,42,.92),
+      calc( 2*var(--px)) calc( 2*var(--px)) 0 0 rgba(255,138,42,.92),
+
+      calc(-1*var(--px)) calc( 3*var(--px)) 0 0 rgba(51,196,106,.92),
+      calc( 0*var(--px)) calc( 3*var(--px)) 0 0 rgba(255,255,255,.85),
+      calc( 1*var(--px)) calc( 3*var(--px)) 0 0 rgba(51,196,106,.92);
+    }
+
+    .nySprite::after{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background: linear-gradient(90deg, transparent 0 40%, rgba(255,255,255,.65) 50%, transparent 60% 100%);
+      transform: translateX(-60%) rotate(10deg);
+      animation: nyShine 2.4s ease-in-out infinite;
+      mix-blend-mode: screen;
+      opacity:.65;
+    }
+
+    @keyframes nyBob{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-3px); }
+    }
+    @keyframes nyShine{
+      0%{ transform: translateX(-70%) rotate(10deg); opacity:.0; }
+      15%{ opacity:.55; }
+      35%{ transform: translateX(70%) rotate(10deg); opacity:.0; }
+      100%{ opacity:0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <img class="avatar" src="./avatar.jpg" alt="avatar">
+        <div class="name">
+          <strong data-i18n="name">JIANG CHENYING（蒋晨莹）</strong>
+          <span data-i18n="tagline">地球在线的玩家 / Player of Earth Online</span>
+        </div>
+      </div>
+
+      <div class="lang" role="group" aria-label="language switch">
+        <div class="label" data-i18n="langLabel">语言</div>
+        <div class="seg">
+          <button type="button" data-lang="zh" class="active">中文</button>
+          <button type="button" data-lang="ja">JP</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT: About + Projects + NewYear -->
+      <section class="leftCol">
+
+        <!-- About -->
+        <section class="card">
+          <div class="cardHead">
+            <div>
+              <div class="titleLine">
+                <span class="ticon" aria-hidden="true"></span>
+                <div class="title" data-i18n="aboutTitle">自我介绍</div>
+              </div>
+              <div class="sub" data-i18n="aboutSub">跨媒体内容 / 游戏企划 / 叙事与体验</div>
+            </div>
+          </div>
+
+          <div class="cardBody">
+            <p class="p" data-i18n="aboutText">
+              我关注游戏、影像与互动叙事的结合，擅长把概念变成可体验的作品原型。
+            </p>
+
+            <ul class="exp" aria-label="experience list">
+              <li><span class="badge" style="background:var(--orange)"></span><p data-i18n="exp1">广告企划 · 上海</p></li>
+              <li><span class="badge" style="background:var(--green)"></span><p data-i18n="exp2">电影企划/宣传/脚本 · 韩寒导演工作室 · 北京</p></li>
+              <li><span class="badge" style="background:var(--orange)"></span><p data-i18n="exp3">游戏企划/发行/运营 · Perfect World（完美世界）· 北京</p></li>
+              <li><span class="badge" style="background:var(--green)"></span><p data-i18n="exp4">数字好莱坞大学大学院 / 修士在读 · 东京</p></li>
+            </ul>
+
+            <!-- ✅ 已按你要求：删除这里的 GitHub/年贺状/项目经历按钮 -->
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="card">
+          <div class="cardHead">
+            <div>
+              <div class="titleLine">
+                <span class="ticon" aria-hidden="true"></span>
+                <div class="title" data-i18n="projTitle">项目经历</div>
+              </div>
+              <div class="sub" data-i18n="projSub">可点击跳转 / 作品集入口</div>
+            </div>
+          </div>
+
+          <div class="cardBody">
+            <div class="list">
+              <a class="row" href="https://mhxzx.wanmei.com" target="_blank" rel="noopener">
+                <b data-i18n="p1">梦幻新诛仙</b><span data-i18n="roleUnified">游戏 / 企划&发行&运营</span>
+              </a>
+              <a class="row" href="https://sm.games.wanmei.com/hot/20200628/baidukey/index.html" target="_blank" rel="noopener">
+                <b data-i18n="p2">新神魔大陆</b><span data-i18n="roleUnified">游戏 / 企划&发行</span>
+              </a>
+              <a class="row" href="https://zxsj.wanmei.com" target="_blank" rel="noopener">
+                <b data-i18n="p3">诛仙世界</b><span data-i18n="roleUnified">游戏 / 企划&发行</span>
+              </a>
+            </div>
+            <p class="footerNote" data-i18n="projHint">
+            
+            </p>
+          </div>
+        </section>
+
+        <!-- New Year 2026 card (NEW) -->
+        <section class="card" id="newyear">
+          <div class="cardHead">
+            <div>
+              <div class="titleLine">
+                <span class="ticon" aria-hidden="true"></span>
+                <div class="title" data-i18n="nyTitle">2026 年贺状</div>
+              </div>
+              <div class="sub" data-i18n="nySub">点击进入 / Fortune + 好运BGM</div>
+            </div>
+            <a class="chip" href="https://anine998.github.io/998.github.io/newyear2026/" target="_blank" rel="noopener">
+              <span class="dot"></span><span data-i18n="open">打开</span>
+            </a>
+          </div>
+
+          <div class="cardBody">
+            <a class="nyLink" href="https://anine998.github.io/998.github.io/newyear2026/" target="_blank" rel="noopener">
+              <div class="nySprite" aria-hidden="true"></div>
+              <div class="nyText">
+                <div class="nyMain" data-i18n="nyMain">2026 年贺状</div>
+                <div class="nySubText" data-i18n="nyDesc">像素占卜 · 好运之歌 · 点击开运</div>
+              </div>
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <!-- RIGHT: VTuber -->
+      <section class="card">
+        <div class="cardHead">
+          <div>
+            <div class="titleLine">
+              <span class="ticon" aria-hidden="true"></span>
+              <div class="title" data-i18n="vtTitle">VTuber 设计</div>
+            </div>
+            <div class="sub" data-i18n="vtSub">角色设定 / 短视频 / 形象实验</div>
+          </div>
+
+          <a class="chip" href="https://youtube.com/shorts/9y1Tc6-LKw0?si=4pTU_1cQ-hs5-oY_" target="_blank" rel="noopener">
+            <span class="dot"></span><span data-i18n="open">打开</span>
+          </a>
+        </div>
+
+        <div class="cardBody">
+          <div class="videoWrap" aria-label="vtuber video">
+            <iframe
+              src="https://www.youtube.com/embed/9y1Tc6-LKw0?rel=0"
+              title="VTuber video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <p class="p" style="margin-top:12px" data-i18n="vtDesc">
+            
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Contact (bottom full width) -->
+    <section class="card" style="margin-top:14px;">
+      <div class="cardHead">
+        <div>
+          <div class="titleLine">
+            <span class="ticon" aria-hidden="true"></span>
+            <div class="title" data-i18n="contactTitle">联系方式</div>
+          </div>
+          <div class="sub" data-i18n="contactSub">回复超级快，快来找我</div>
+        </div>
+        <a class="chip" href="mailto:aaaaanine@gmai.com">
+          <span class="dot"></span><span data-i18n="emailBtn">发邮件</span>
+        </a>
+      </div>
+      <div class="cardBody">
+        <div class="row" style="align-items:center;">
+          <b data-i18n="emailLabel">邮箱</b>
+          <a class="emailLink" href="mailto:aaaaanine@gmail.com">aaaaanine@gmail.com</a>
+        </div>
+        <p class="footerNote" data-i18n="contactHint">想合作 / 想聊天 / 想约项目都欢迎：我回复很快。</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const dict = {
+      zh: {
+        langLabel: "语言",
+        name: "JIANG CHENYING（蒋晨莹）",
+        tagline: "地球在线的玩家 / Player of Earth Online",
+        open: "打开",
+
+        aboutTitle: "自我介绍",
+        aboutSub: "跨媒体内容 / 游戏企划 / 叙事与体验",
+        aboutText: "我关注游戏、影像与互动叙事的结合，擅长把概念变成可体验的作品原型。",
+        exp1: "广告企划 · 上海",
+        exp2: "电影企划/宣传/脚本 · 韩寒导演工作室 · 北京",
+        exp3: "游戏企划/发行/运营 · Perfect World（完美世界）· 北京",
+        exp4: "数字好莱坞大学大学院 / 修士在读 · 东京",
+
+        projTitle: "项目经历",
+        projSub: "可点击跳转 / 作品集入口",
+        p1: "梦幻新诛仙",
+        p2: "新神魔大陆",
+        p3: "诛仙世界",
+        roleUnified: "游戏 / 企划&发行&运营",
+      
+
+        nyTitle: "2026 年贺状",
+        nySub: "点击进入 / Fortune + 好运BGM",
+        nyMain: "2026 年贺状",
+        nyDesc: "像素占卜 · 好运之歌 · 点击开运",
+
+        vtTitle: "VTuber 设计",
+        vtSub: "角色设定 / 短视频 / 形象实验",
+       
+
+        contactTitle: "联系方式",
+        contactSub: "我联络超级快，快来找我",
+        emailBtn: "发邮件",
+        emailLabel: "邮箱",
+        contactHint: "想合作 / 想聊天 / 想约项目都欢迎：我回复很快。"
+      },
+
+      ja: {
+        langLabel: "言語",
+        name: "JIANG CHENYING（蒋晨莹）",
+        tagline: "地球オンラインのプレイヤー / Player of Earth Online",
+        open: "開く",
+
+        aboutTitle: "自己紹介",
+        aboutSub: "クロスメディア / ゲーム企画 / 物語と体験",
+        aboutText: "ゲーム・映像・インタラクティブな物語の接続に関心があり、アイデアを体験できるプロトタイプへ落とし込みます。",
+        exp1: "広告企画 · 上海",
+        exp2: "映画の企画/PR/脚本 · 韓寒監督スタジオ · 北京",
+        exp3: "ゲーム企画/プロモーション/運営 · Perfect World（完美世界）· 北京",
+        exp4: "デジタルハリウッド大学大学院 / 修士在学 · 東京",
+
+        projTitle: "プロジェクト",
+        projSub: "クリックで移動 / 入口リンク",
+        p1: "夢幻新誅仙",
+        p2: "新神魔大陸",
+        p3: "誅仙世界",
+        roleUnified: "ゲーム / 企画&プロモーション&運営",
+        
+
+        nyTitle: "2026 年賀状",
+        nySub: "クリックで移動 / Fortune + BGM",
+        nyMain: "2026 年賀状",
+        nyDesc: "ピクセル占い · 幸運BGM · クリックで開運",
+
+        vtTitle: "VTuberデザイン",
+        vtSub: "キャラ設定 / ショート動画 / ビジュアル実験",
+        
+
+        contactTitle: "連絡先",
+        contactSub: "返信めちゃ早いので、気軽に連絡してね",
+        emailBtn: "メールする",
+        emailLabel: "メール",
+        contactHint: "相談・コラボ・雑談なんでもOK。返信は早めです。"
+      },
+
+      en: {
+        langLabel: "LANG",
+        name: "JIANG CHENYING ",
+        tagline: "Player of Earth Online",
+        open: "Open",
+
+        aboutTitle: "About",
+        aboutSub: "Cross-media / Game planning / Narrative & experience",
+        aboutText: "I connect games, film, and interactive storytelling, turning concepts into experience-first prototypes.",
+        exp1: "Ad Planning · Shanghai",
+        exp2: "Film Planning / PR / Script · Han Han Studio · Beijing",
+        exp3: "Game Planning / Publishing / Operations · Perfect World · Beijing",
+        exp4: "DHGS (Master’s) · Tokyo",
+
+        projTitle: "Projects",
+        projSub: "Clickable entries / portfolio links",
+        p1: "MHXZX",
+        p2: "SM Continent",
+        p3: "ZX World",
+        roleUnified: "Game / Planning & Publishing & Ops",
+        
+
+        nyTitle: "New Year 2026",
+        nySub: "Click to open / Fortune + BGM",
+        nyMain: "New Year 2026",
+        nyDesc: "Pixel fortune · Lucky song · Click to boost luck",
+
+        vtTitle: "VTuber Design",
+        vtSub: "Character / Shorts / Visual tests",
+       
+
+        contactTitle: "Contact",
+        contactSub: "I reply super fast—hit me up!",
+        emailBtn: "Email me",
+        emailLabel: "Email",
+        contactHint: "Collab / chat / projects welcome. Fast response."
+      }
+    };
+
+    const btns = document.querySelectorAll(".seg button");
+    const nodes = document.querySelectorAll("[data-i18n]");
+
+    function applyLang(lang){
+      document.documentElement.lang = lang === "ja" ? "ja" : (lang === "en" ? "en" : "zh");
+      btns.forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+      nodes.forEach(el => {
+        const key = el.dataset.i18n;
+        if(dict[lang] && dict[lang][key]) el.textContent = dict[lang][key];
+      });
+      localStorage.setItem("site_lang", lang);
+    }
+
+    btns.forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+    applyLang(localStorage.getItem("site_lang") || "zh");
+  </script>
+</body>
+</html>
