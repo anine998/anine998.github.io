@@ -24,29 +24,57 @@ header{position:sticky;top:0;background:#f5f1e8ed;backdrop-filter:blur(14px);z-i
 @media(max-width:480px){.shell{padding:0 15px}.stage{gap:9px}.choice{padding:13px 7px;min-height:86px}.c-icon{display:none}.c-text strong{font-size:12px}.arr{font-size:15px}.drawerGrid{grid-template-columns:1fr}.poster{height:142px}.intro h1{font-size:25px}.featured{padding-top:23px}footer{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 
-/* Standalone, visitor-facing contact section */
+/* Pixel-style contact section matching the main homepage palette */
 #works{scroll-margin-top:88px}
-.contact-section{scroll-margin-top:82px;padding:22px 0 78px}
-.contact-frame{background:#2c3a32;color:#faf7ee;border:2px solid #263129;box-shadow:9px 9px 0 #d9d1be;padding:clamp(24px,4vw,50px);position:relative;overflow:hidden}
-.contact-frame:before{content:"";position:absolute;top:0;right:0;width:54px;height:54px;border-left:2px solid #c5a466;border-bottom:2px solid #c5a466;transform:translate(30px,-30px) rotate(45deg);opacity:.7;pointer-events:none}
-.contact-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.contact-top .eyebrow{color:#e7bd72}
-.contact-signal{font:700 10px ui-monospace,monospace;letter-spacing:.08em;color:#b9d3b4}
-.contact-heading{font-size:clamp(30px,5vw,58px);letter-spacing:-.065em;line-height:1.25;margin:14px 0 10px}
-.contact-heading span{color:var(--sun)}
-.contact-desc{font-size:clamp(13px,1.55vw,16px);color:#cdd6ca;line-height:1.8;margin:0 0 28px}
-.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.contact-card{display:flex;flex-direction:column;gap:13px;min-width:0;min-height:177px;padding:clamp(18px,2.4vw,28px);background:#374b3e;border:1px solid #6b8475;color:#fffaf0;text-align:left;transition:transform .2s,border-color .2s,background .2s}
-.contact-card:hover,.contact-card:focus-within{border-color:#f2cd81;background:#3d5445;transform:translateY(-3px)}
-.contact-label{font:700 12px ui-monospace,monospace;letter-spacing:.09em;color:#f2ca80}
-.contact-value{font-size:clamp(18px,2.25vw,28px);font-weight:740;line-height:1.5;overflow-wrap:anywhere;letter-spacing:-.025em}
-.contact-action{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-weight:650;font-size:13px;color:#f8e9c3}
-.contact-copy{margin-top:auto;align-self:flex-start;border:1px solid #ebd6a6;color:#f9ecca;background:transparent;padding:9px 16px;border-radius:3px;font-weight:650;font-size:13px;transition:background .2s}
-.contact-copy:hover{background:#506550}
-@media(max-width:640px){.contact-grid{grid-template-columns:1fr}.contact-card{min-height:155px}.contact-section{padding:16px 0 62px}.contact-frame{box-shadow:6px 6px 0 #d9d1be}.contact-signal{font-size:9px}}
+.contact-section{scroll-margin-top:82px;padding:30px 0 80px}
+.contact-frame{background:#fffdf8;color:#253229;border:2px solid #2b3830;box-shadow:9px 9px 0 #ded6c4;padding:clamp(23px,4vw,46px);position:relative;overflow:hidden}
+.contact-frame:before{content:"";position:absolute;right:0;top:0;width:88px;height:88px;opacity:.34;pointer-events:none;background-image:linear-gradient(#cfbf96 1px,transparent 1px),linear-gradient(90deg,#cfbf96 1px,transparent 1px);background-size:16px 16px;mask-image:linear-gradient(225deg,#000,transparent)}
+.contact-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.contact-top .eyebrow{color:#ad7a37}
+.contact-signal{display:flex;align-items:center;gap:8px;border:1px solid #bbc9b7;background:#edf3e8;color:#48654d;padding:6px 10px;font:700 10px ui-monospace,monospace;letter-spacing:.06em}
+.signal-dot{display:inline-block;width:8px;height:8px;background:#7ea47b;box-shadow:3px 3px 0 #b6cfad}
+.contact-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0 25px}
+.contact-title-wrap{min-width:0;flex:1}
+.contact-heading{font-size:clamp(34px,4.7vw,56px);line-height:1.25;letter-spacing:-.06em;margin:10px 0}
+.contact-heading span{color:#c89743}
+.contact-desc{font-size:clamp(13px,1.5vw,15px);color:#68746a;line-height:1.9;margin:0;max-width:690px}
+.contact-topics{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.contact-topics span{font:700 10px ui-monospace,monospace;border:1px solid #d2c4a7;color:#87683d;background:#fcf5e5;padding:5px 9px}
+.contact-pixel-illustration{position:relative;flex:0 0 195px;height:165px;display:grid;place-items:center;margin-right:12px}
+.contact-pixel-illustration:before{content:"";position:absolute;width:141px;height:115px;background:#edf0e6;border:2px solid #c1caba;box-shadow:6px 6px 0 #d5dbcc;transform:rotate(-3deg)}
+.pixel-envelope{position:relative;z-index:2;transform:rotate(5deg);animation:contact-float 3.8s ease-in-out infinite}
+.pixel-envelope svg{image-rendering:pixelated;overflow:visible}
+.pixel-star{position:absolute;z-index:3;color:#c59237;font:26px ui-monospace,monospace}
+.star-one{right:14px;top:2px}.star-two{left:8px;bottom:27px;font-size:16px;color:#84a180}
+.pixel-speech{position:absolute;z-index:3;right:-7px;bottom:-7px;background:#fff;border:2px solid #2b3830;box-shadow:3px 3px 0 #c6cbbb;padding:5px 10px;color:#2b3830;font:800 10px ui-monospace,monospace;text-align:center}
+.pixel-speech span{display:block;font:600 10px system-ui,-apple-system,"PingFang SC",sans-serif}
+@keyframes contact-float{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.contact-card{display:flex;flex-direction:column;align-items:stretch;gap:12px;background:#f7f4ea;border:2px solid #354239;box-shadow:5px 5px 0 #d8d0bb;color:#253229;padding:clamp(17px,2.5vw,25px);min-height:238px;text-decoration:none;min-width:0;transition:transform .2s,box-shadow .2s,background .2s}
+.contact-card:nth-child(2){background:#f1f5ee}
+.contact-card:hover,.contact-card:focus-within{background:#fffaed;transform:translate(-2px,-4px);box-shadow:8px 9px 0 #d5c59f}
+.contact-card:nth-child(2):hover,.contact-card:nth-child(2):focus-within{background:#f1f8ef}
+.contact-card-head{display:flex;align-items:center;gap:12px}
+.contact-icon{width:48px;height:48px;border:2px solid #334137;display:grid;place-items:center;background:#ffe3aa;box-shadow:3px 3px 0 #d4c39f;flex:0 0 48px}
+.contact-card:nth-child(2) .contact-icon{background:#d8e8d5;box-shadow:3px 3px 0 #c8dac8}
+.contact-icon svg{display:block;image-rendering:pixelated}
+.contact-label{font:800 12px ui-monospace,monospace;color:#8e672f;letter-spacing:.075em}
+.contact-card:nth-child(2) .contact-label{color:#55735c}
+.contact-value{display:block;overflow-wrap:anywhere;letter-spacing:-.045em;font-size:clamp(18px,2.25vw,27px);line-height:1.3;margin-top:4px;color:#29352c}
+.contact-note{color:#738076;font-size:12px;line-height:1.6}
+.contact-action,.contact-copy{margin-top:auto;align-self:flex-start;display:inline-flex;gap:20px;align-items:center;justify-content:space-between;border:2px solid #2d3b32;background:#33453a;color:#fffaf0;padding:10px 14px;font-weight:700;font-size:12px;line-height:1.3;text-decoration:none;box-shadow:3px 3px 0 #bcb79c;transition:background .2s,transform .2s}
+.contact-action:hover,.contact-copy:hover{background:#536e5b;transform:translateY(-2px)}
+.contact-copy{cursor:pointer}
+.contact-footnote{border-top:1px dashed #d4d4c8;margin-top:25px;padding-top:17px;display:flex;align-items:center;gap:9px;color:#758077;font-size:12px}
+.contact-foot-sparkle{color:#d29c3e;font-size:18px}
+.contact-place{margin-left:auto;font:700 10px ui-monospace,monospace;letter-spacing:.08em;color:#a28c68}
+@media(max-width:720px){.contact-pixel-illustration{flex-basis:142px;height:126px;margin-right:0}.contact-pixel-illustration:before{width:107px;height:92px}.pixel-envelope svg{width:91px;height:77px}.pixel-speech{font-size:8px}.pixel-speech span{font-size:9px}.contact-hero{gap:14px}}
+@media(max-width:600px){.contact-grid{grid-template-columns:1fr}.contact-hero{align-items:flex-start}.contact-pixel-illustration{flex-basis:90px;width:90px;height:100px;margin-right:0}.contact-pixel-illustration:before{width:75px;height:72px;box-shadow:3px 3px 0 #d5dbcc}.pixel-envelope svg{width:67px;height:61px}.pixel-speech{display:none}.star-one{right:-6px}.star-two{left:-8px;bottom:0}.contact-frame{box-shadow:6px 6px 0 #ded6c4}.contact-topics{margin-top:12px}.contact-card{min-height:204px}.contact-section{padding:23px 0 62px}}
+@media(max-width:420px){.contact-hero{gap:5px}.contact-pixel-illustration{flex-basis:65px;width:65px}.contact-heading{font-size:34px}.contact-topics span{font-size:9px;padding:5px 6px}.contact-place{display:none}.nav{gap:9px;font-size:11px}.brand{font-size:27px}.top{gap:10px}}
+@media(prefers-reduced-motion:reduce){.pixel-envelope{animation:none}}
 </style>
 </head><body>
-<header><nav class="shell top"><a class="brand" href="#top">NINE<span class="dot">.</span></a><span class="strap">CREATIVE STRATEGY / AI / BUSINESS</span><div class="nav"><a href="#top">首页</a><a href="#works">项目展示</a><a href="#contact">联系</a></div></nav></header>
+<header><nav class="shell top"><a class="brand" href="#top">NINE<span class="dot">.</span></a><span class="strap">CREATIVE STRATEGY / AI / BUSINESS</span><div class="nav"><a href="#top">首页</a><a href="#works">项目展示</a><a href="#contact">联络方式</a></div></nav></header>
 <main id="top"><section class="hero"><div class="shell"><div class="overline eyebrow"><span>◈ PLAYER OF EARTH ONLINE</span><span>INTERACTIVE PORTFOLIO / CN · 2026</span></div>
 <div class="stage">
 <div class="side left" id="leftChoices"></div>
@@ -57,16 +85,56 @@ header{position:sticky;top:0;background:#f5f1e8ed;backdrop-filter:blur(14px);z-i
 <section id="journey" class="shell lower"><article><div class="eyebrow">01 / BUSINESS</div><h3>从商业问题出发</h3><p>游戏发行、内容营销、品牌联名和项目协作，强调策略与可验证的执行过程。</p><a href="#" data-open="business">查看商业项目 ↗</a></article><article><div class="eyebrow">02 / CREATIVE</div><h3>把想法做成作品</h3><p>从 AI 广告、数字影像到交互原型，持续探索技术与叙事如何服务用户体验。</p><a href="#" data-open="creative">查看创意项目 ↗</a></article><article><div class="eyebrow">03 / GLOBAL</div><h3>从中国到日本</h3><p>将中国市场的商业经验延伸至日本：涵盖 AI 创意研究、品牌赴日项目落地，以及中日英三语跨文化协作。</p><a href="#" data-open="career">了解经历 ↗</a></article></section>
 <section class="contact-section" id="contact" aria-labelledby="contactHeading">
 <div class="shell"><div class="contact-frame">
-<div class="contact-top"><span class="eyebrow">CONTACT / LET'S CONNECT</span><span class="contact-signal" aria-hidden="true">● OPEN TO COLLABORATION</span></div>
-<h2 class="contact-heading" id="contactHeading">保持联系<span>.</span></h2>
-<p class="contact-desc" id="contactLead">欢迎交流游戏、AI 创意与国际业务合作</p>
-<div class="contact-grid">
-<a class="contact-card" id="email" href="mailto:aaaaanine@gmail.com" aria-label="发送邮件至 aaaaanine@gmail.com">
-<span class="contact-label">01 / EMAIL</span><strong class="contact-value" id="emailText">aaaaanine@gmail.com</strong><span class="contact-action">发送邮件 <span aria-hidden="true">↗</span></span>
-</a>
-<div class="contact-card"><span class="contact-label">02 / WECHAT</span><strong class="contact-value" id="wechatText">A9---9</strong>
-<button class="contact-copy" id="copyWechat" type="button" aria-label="复制微信号">复制微信号 <span aria-hidden="true">↗</span></button></div>
-</div></div></div></section>
+  <div class="contact-top">
+    <span class="eyebrow">CONTACT / GET IN TOUCH</span>
+    <span class="contact-signal"><span class="signal-dot" aria-hidden="true"></span> OPEN TO NEW IDEAS</span>
+  </div>
+  <div class="contact-hero">
+    <div class="contact-title-wrap">
+      <h2 class="contact-heading" id="contactHeading">联络方式<span>.</span></h2>
+      <p class="contact-desc" id="contactLead">无论是工作机会、游戏营销、AI 创意，还是跨文化合作，都欢迎来信交流。</p>
+      <div class="contact-topics" aria-hidden="true"><span>GAME</span><span>STRATEGY</span><span>AI CREATIVE</span></div>
+    </div>
+    <div class="contact-pixel-illustration" aria-hidden="true">
+      <span class="pixel-star star-one">✦</span><span class="pixel-star star-two">✳</span>
+      <div class="pixel-envelope">
+        <svg viewBox="0 0 80 64" width="122" height="100" aria-hidden="true" shape-rendering="crispEdges">
+          <rect x="10" y="12" width="60" height="42" fill="#f6c56e" stroke="#28372f" stroke-width="4"/>
+          <path d="M12 16L40 39L68 16" stroke="#28372f" stroke-width="4" fill="none" stroke-linejoin="miter"/>
+          <path d="M12 50L31 34M68 50L49 34" stroke="#28372f" stroke-width="3" fill="none"/>
+          <rect x="35" y="28" width="10" height="10" fill="#fff1c4"/>
+          <rect x="22" y="56" width="8" height="4" fill="#79978a"/><rect x="34" y="56" width="12" height="4" fill="#79978a"/>
+        </svg>
+      </div>
+      <span class="pixel-speech">HELLO!<span>来聊聊吧 ✦</span></span>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-card" id="email" href="mailto:aaaaanine@gmail.com" aria-label="发送邮件至 aaaaanine@gmail.com">
+      <span class="contact-card-head">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="31" height="31" shape-rendering="crispEdges"><rect x="3" y="7" width="26" height="19" fill="#f4c35e" stroke="#27382e" stroke-width="2"/><path d="M5 9L16 19L27 9" fill="none" stroke="#27382e" stroke-width="2"/><path d="M5 24L13 17M27 24L19 17" fill="none" stroke="#27382e" stroke-width="2"/></svg>
+        </span>
+        <span class="contact-label">01 / EMAIL</span>
+      </span>
+      <strong class="contact-value" id="emailText">aaaaanine@gmail.com</strong>
+      <span class="contact-note">工作机会、项目合作与正式沟通</span>
+      <span class="contact-action">发送邮件 <span aria-hidden="true">↗</span></span>
+    </a>
+    <div class="contact-card">
+      <span class="contact-card-head">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="31" height="31" shape-rendering="crispEdges"><path d="M4 6H28V23H14L8 29V23H4Z" fill="#bed2bd" stroke="#27382e" stroke-width="2"/><rect x="9" y="14" width="3" height="3" fill="#27382e"/><rect x="15" y="14" width="3" height="3" fill="#27382e"/><rect x="21" y="14" width="3" height="3" fill="#27382e"/></svg>
+        </span>
+        <span class="contact-label">02 / WECHAT</span>
+      </span>
+      <strong class="contact-value" id="wechatText">A9---9</strong>
+      <span class="contact-note">欢迎添加微信，轻松交流</span>
+      <button class="contact-copy" id="copyWechat" type="button" aria-label="复制微信号">复制微信号 <span aria-hidden="true">↗</span></button>
+    </div>
+  </div>
+  <div class="contact-footnote"><span aria-hidden="true" class="contact-foot-sparkle">✳</span><span>期待你的来信，也期待下一次有趣的合作。</span><span class="contact-place">[ NINE · TOKYO ]</span></div>
+</div></div></section>
 </main><footer class="shell"><span>© 2026 NINE · Player of Earth Online</span><a href="../">旧版个人网站 ↗</a><a href="admin/">内容管理（需授权） ↗</a></footer>
 <div class="shade" id="shade"></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="作品详情" aria-hidden="true"><button class="drawer-close" id="closeDrawer" aria-label="关闭">×</button><div id="drawerContent"></div></aside><div class="statusbar" id="toast" role="status"></div>
 <script>
