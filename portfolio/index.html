@@ -161,7 +161,7 @@ function applyLanguage(code){
  const tx=staticTranslations[locale]||staticTranslations.zh;
  document.querySelectorAll(".nav a").forEach((e,i)=>e.textContent=tx.menu[i]);
  document.querySelectorAll(".lang-switch button").forEach(e=>e.setAttribute("aria-pressed",String(e.dataset.lang===locale)));
- document.querySelector(".featured .section-title span").textContent=tx.selected[0];
+ document.querySelector(".featured .section-title > span").textContent=tx.selected[0];
  $("allWorks").textContent=tx.selected[1];
  document.querySelector("#contactHeading").innerHTML=tx.contact[0]+'<span>.</span>';
  document.querySelector(".contact-action").firstChild.textContent=tx.contact[1]+" ";
