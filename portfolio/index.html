@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e8">
-<meta name="description" content="NINE. | JIANG CHENYING Portfolio — Marketing, Game Publishing, AI and Creative Strategy.">
-<title>NINE. | JIANG CHENYING Portfolio</title>
+<meta name="description" content="NINE.| JIANG CHENYING Portfolio — Marketing, Game Publishing, AI and Creative Strategy.">
+<title>NINE.| JIANG CHENYING Portfolio</title>
 <style>
 :root{--bg:#f5f1e8;--surface:#fffdf8;--ink:#222824;--muted:#687168;--line:#d7d3c7;--sun:#f5c25c;--accent:#b67e39;--dark:#303b33}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.shell{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,60px)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
@@ -157,7 +157,7 @@ function tr(k){return staticTranslations[locale]?.misc[k]||staticTranslations.zh
 function applyLanguage(code){
  locale=["zh","ja","en"].includes(code)?code:"zh";document.documentElement.lang=locale==="zh"?"zh-CN":locale;
  const t=translations?.[locale];data=JSON.parse(JSON.stringify(originalData));
- if(t){Object.assign(data.identity,t.identity);(data.sections||[]).forEach((s,i)=>{if(t.sections[i]){s.title=t.sections[i][0];s.subtitle=t.sections[i][1]}});(data.career||[]).forEach((v,i)=>{if(t.career[i]){v.title=t.career[i][0];v.subtitle=t.career[i][1];v.body=t.career[i][2]}});(data.japan||[]).forEach((v,i)=>{if(t.japan[i]){v.title=t.japan[i][0];v.body=t.japan[i][1]}});(data.projects||[]).forEach(p=>{const q=t.projects?.[p.id];if(q){p.title=q[0];p.tag=q[1];p.summary=q[2];p.role=q[3];p.result=q[4]}})}
+ if(t){Object.assign(data.identity,t.identity);(data.sections||[]).forEach((s,i)=>{if(t.sections[i]){s.title=t.sections[i][0];s.subtitle=t.sections[i][1]}});(data.career||[]).forEach((v,i)=>{if(t.career[i]){v.title=t.career[i][0];v.subtitle=t.career[i][1];v.body=t.career[i][2];v.period=t.periods?.[i]||v.period}});(data.japan||[]).forEach((v,i)=>{if(t.japan[i]){v.title=t.japan[i][0];v.body=t.japan[i][1]}});(data.projects||[]).forEach(p=>{const q=t.projects?.[p.id];if(q){p.title=q[0];p.tag=q[1];p.summary=q[2];p.role=q[3];p.result=q[4]}p.status=t.statuses?.[p.status]||p.status})}
  const tx=staticTranslations[locale]||staticTranslations.zh;
  document.querySelectorAll(".nav a").forEach((e,i)=>e.textContent=tx.menu[i]);
  document.querySelectorAll(".lang-switch button").forEach(e=>e.setAttribute("aria-pressed",String(e.dataset.lang===locale)));
@@ -170,6 +170,8 @@ function applyLanguage(code){
  document.querySelectorAll("#journey article").forEach((e,i)=>{e.querySelector("h3").textContent=tx.bottom[i];e.querySelector("p").textContent=tx.lower[i];e.querySelector("a").textContent=tx.more[i]});
  document.querySelector('footer a[href="https://anine998.github.io/"]').textContent=tx.misc.old;
  document.querySelector('footer a[href="../portfolio-v2/admin/"]').textContent=tx.misc.admin;
+ document.querySelector(".hint").textContent=t?.characterHint||"01 / 自我介绍　[点击角色]";
+ document.querySelectorAll(".contact-note").forEach((e,i)=>e.textContent=t?.contactNotes?.[i]||["工作机会、项目合作与正式沟通","欢迎添加微信，轻松交流"][i]);
  chatIndex=0;renderMain();close();
 }
 document.querySelectorAll(".lang-switch button").forEach(b=>b.addEventListener("click",()=>applyLanguage(b.dataset.lang)));
@@ -177,7 +179,7 @@ document.querySelectorAll(".lang-switch button").forEach(b=>b.addEventListener("
 function showToast(s){const t=$("toast");t.textContent=s;t.style.display="block";setTimeout(()=>t.style.display="none",3500)}
 function addCover(parent,p,small=false){let c=elem("div",small?"poster":"detail-cover");c.style.background=p.accent||"#60786b";if(allowedImage(p.cover)){let image=elem("img");image.src=p.cover.startsWith("assets/")?"../portfolio-v2/"+p.cover:p.cover;image.alt=p.title||"";image.loading="lazy";image.onerror=()=>{image.remove();c.append(elem("b","cover-fallback",p.title||"PROJECT"))};c.append(image)}else{c.append(elem("b",null,p.title||"PROJECT"))}parent.append(c);return c}
 function renderOptions(){const sec=data.sections||[];["left","right"].forEach((side,i)=>{let wrap=$(side+"Choices");wrap.replaceChildren();sec.slice(i*2,i*2+2).forEach(s=>{let btn=elem("button","choice");btn.type="button";btn.setAttribute("aria-expanded","false");let ic=elem("span","c-icon",s.icon||"◇"),t=elem("span","c-text"),n=elem("i",null,s.number+" / "+s.en),h=elem("strong",null,s.title),sub=elem("small",null,s.subtitle),ar=elem("span","arr","↗");t.append(n,h,sub);btn.append(ic,t,ar);btn.addEventListener("click",()=>s.id==="about"?openAbout():openSection(s.id));wrap.append(btn)})})}
-function renderMain(){let i=data.identity||{};document.title="NINE. | JIANG CHENYING Portfolio";$("role").textContent=i.role||i.eyebrow||"";$("headline").textContent=i.headline||"";$("summary").textContent=i.summary||"";$("status").textContent=i.status||"";$("speech").textContent=(i.greeting||[])[0]||"你好，欢迎！";$("emailText").textContent=i.email||"aaaaanine@gmail.com";$("email").href="mailto:"+(i.email||"aaaaanine@gmail.com");$("email").setAttribute("aria-label","发送邮件至 "+(i.email||"aaaaanine@gmail.com"));$("wechatText").textContent=i.wechat||"A9---9";$("contactLead").textContent=i.contactLabel||"欢迎交流游戏、AI 创意与国际业务合作。";if(allowedImage(i.avatar))$("avatar").src=i.avatar;renderOptions();renderFeatured()}
+function renderMain(){let i=data.identity||{};document.title="NINE.| JIANG CHENYING Portfolio";$("role").textContent=i.role||i.eyebrow||"";$("headline").textContent=i.headline||"";$("summary").textContent=i.summary||"";$("status").textContent=i.status||"";$("speech").textContent=(i.greeting||[])[0]||"你好，欢迎！";$("emailText").textContent=i.email||"aaaaanine@gmail.com";$("email").href="mailto:"+(i.email||"aaaaanine@gmail.com");$("email").setAttribute("aria-label","发送邮件至 "+(i.email||"aaaaanine@gmail.com"));$("wechatText").textContent=i.wechat||"A9---9";$("contactLead").textContent=i.contactLabel||"欢迎交流游戏、AI 创意与国际业务合作。";if(allowedImage(i.avatar))$("avatar").src=i.avatar;renderOptions();renderFeatured()}
 function renderFeatured(){const area=$("featuredCards");area.replaceChildren();(data.projects||[]).filter(p=>p.featured&&p.category!=="play").slice(0,5).forEach((p,i)=>{let btn=elem("button","project"),cover=addCover(btn,p,true),number=elem("em",null,("0"+(i+1)).slice(-2));cover.append(number);let bottom=elem("div","proj-txt"),title=elem("b",null,p.title),tag=elem("small",null,p.tag);bottom.append(title,tag);btn.append(bottom);btn.addEventListener("click",()=>openProject(p.id));area.append(btn)});if(!area.childNodes.length)area.append(elem("p",null,tr("empty")))}
 function drawerOpen(){dialogBefore=document.activeElement;$("shade").classList.add("open");$("drawer").classList.add("open");$("drawer").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";$("closeDrawer").focus()}
 function clearDrawer(){const c=$("drawerContent");c.replaceChildren();return c}
