@@ -156,7 +156,26 @@
         "ビジュアル、Webアニメーション、インタラクションを制作。",
         ""
       ]
-    }
+    },
+    "periods": [
+      "2025年〜現在",
+      "2024〜2025年",
+      "2020〜2023年",
+      "2019〜2020年",
+      "2018〜2019年",
+      "2016〜2017年"
+    ],
+    "statuses": {
+      "完成": "完成",
+      "制作中": "制作中",
+      "研究中": "研究中",
+      "实验项目": "実験プロジェクト"
+    },
+    "contactNotes": [
+      "採用・お仕事のご相談やプロジェクトのご提案に",
+      "気軽なご相談・情報交換に"
+    ],
+    "characterHint": "01 / 自己紹介　［キャラクターをクリック］"
   },
   "en": {
     "identity": {
@@ -315,6 +334,25 @@
         "Creative concept, visual design, web animation, and interaction.",
         ""
       ]
-    }
+    },
+    "periods": [
+      "2025–Present",
+      "2024–2025",
+      "2020–2023",
+      "2019–2020",
+      "2018–2019",
+      "2016–2017"
+    ],
+    "statuses": {
+      "完成": "Completed",
+      "制作中": "In progress",
+      "研究中": "Research in progress",
+      "实验项目": "Experimental project"
+    },
+    "contactNotes": [
+      "For opportunities, proposals, and professional conversations",
+      "For a quick hello, questions, or collaboration"
+    ],
+    "characterHint": "01 / ABOUT ME　[CLICK THE CHARACTER]"
   }
 }
