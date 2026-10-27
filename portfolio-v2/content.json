@@ -51,7 +51,7 @@
       "number": "04",
       "title": "AI 与内容制作",
       "en": "AI & CONTENT",
-      "subtitle": "数字影像、AI 实验与创意原型",
+      "subtitle": "AI 影像、动画制作与互动网页",
       "icon": "✳"
     }
   ],
@@ -96,7 +96,7 @@
   "japan": [
     {
       "title": "AI 创意与前沿研究",
-      "body": "作品入围日本 AICU 大赛。目前在数字好莱坞大学大学院研究室开展生成式 AI 内容模型相关的创意设计与原型搭建，探索 AI 影像、数字叙事与互动体验的结合。"
+      "body": "CatAI 与毛毡猫音乐短片入围 AICU 数字创作者大赛。目前在大学院研究室开展生成式 AI 内容模型的创意设计与原型搭建，探索 AI 影像与互动体验。"
     },
     {
       "title": "品牌赴日与项目落地",
@@ -220,9 +220,9 @@
       "featured": true,
       "cover": "",
       "accent": "#7277af",
-      "summary": "为虚拟 AI 陪伴品牌设计的网页动画广告，表达聊天、唱歌和哄睡等陪伴场景。",
-      "role": "虚拟品牌定位、广告概念、视觉节奏、三维网页动画及呈现。",
-      "result": "网页可直接体验，作为 AI 创意与技术原型案例。",
+      "summary": "为虚拟 AI 陪伴品牌 CatAI 制作网页动画广告，呈现聊天、唱歌与哄睡等陪伴场景。",
+      "role": "负责品牌概念、广告创意、视觉设计及基于 GPT 与 Three.js 的网页动画制作。",
+      "result": "作品入围 AICU 数字创作者大赛。",
       "link": "https://catai-companion-film.chalkyboot32.chatgpt.site",
       "linkLabel": "体验网页",
       "note": ""
@@ -231,34 +231,17 @@
       "id": "felt",
       "title": "もういい、一本吸お｜Forget It, Have a Smoke",
       "category": "creative",
-      "tag": "毛毡猫动画 · 音乐影像",
+      "tag": "AI 动画 · 音乐短片",
       "date": "2026",
       "status": "完成",
       "featured": false,
       "cover": "https://img.youtube.com/vi/YdBoNObU_Gg/hqdefault.jpg",
       "accent": "#544944",
-      "summary": "用手工毛毡视觉语言设计音乐动画短片，探索克制、冷幽默与电影质感。",
-      "role": "创意脚本、角色与画面风格、关键帧和影像制作。",
-      "result": "以最终短片及制作过程展示 AI 影像叙事能力。",
+      "summary": "以毛毡定格动画风格创作的音乐短片，结合原创角色与黑色幽默叙事。",
+      "role": "负责创意构思、角色与分镜设计、AI 影像生成及后期制作。",
+      "result": "作品入围 AICU 数字创作者大赛。",
       "link": "https://www.youtube.com/watch?v=YdBoNObU_Gg",
       "linkLabel": "观看视频",
-      "note": ""
-    },
-    {
-      "id": "glances",
-      "title": "100次目光",
-      "category": "creative",
-      "tag": "短剧企划 · 社会寓言",
-      "date": "2026",
-      "status": "制作中",
-      "featured": false,
-      "cover": "",
-      "accent": "#a78e7b",
-      "summary": "如果一个人每天只能被看见一百次，社会会发生什么？以目光消费为隐喻的寓言短剧。",
-      "role": "世界观、分集叙事、脚本与视觉设定。",
-      "result": "当前以概念与开发中项目展示，明确标注状态。",
-      "link": "",
-      "linkLabel": "",
       "note": ""
     },
     {
@@ -271,9 +254,9 @@
       "featured": false,
       "cover": "https://img.youtube.com/vi/9y1Tc6-LKw0/hqdefault.jpg",
       "accent": "#ba9d6d",
-      "summary": "旧网站原有的 VTuber 设计作品，纳入创意实验档案。",
-      "role": "角色设定、视觉与短视频表达。",
-      "result": "保留原网站的视频入口。",
+      "summary": "设计虚拟主播角色并制作短视频，探索数字角色的个性化表达。",
+      "role": "负责角色设定、视觉设计和短视频制作。",
+      "result": "",
       "link": "https://www.youtube.com/shorts/9y1Tc6-LKw0",
       "linkLabel": "观看视频",
       "note": ""
@@ -322,9 +305,9 @@
       "featured": false,
       "cover": "",
       "accent": "#cea85e",
-      "summary": "将像素风、好运主题和轻量网页互动结合的创意实验。",
-      "role": "创意与网页交互设计。",
-      "result": "保留原个人网站已有入口。",
+      "summary": "以像素游戏风格制作的新年祝福互动网页。",
+      "role": "负责视觉设计、网页动画及交互实现。",
+      "result": "",
       "link": "/projects/newyear2026/",
       "linkLabel": "打开互动作品",
       "note": ""
