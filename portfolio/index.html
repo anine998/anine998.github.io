@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e8">
+<meta name="description" content="NINE. | JIANG CHENYING Portfolio — Marketing, Game Publishing, AI and Creative Strategy.">
+<title>NINE. | JIANG CHENYING Portfolio</title>
+<style>
+:root{--bg:#f5f1e8;--surface:#fffdf8;--ink:#222824;--muted:#687168;--line:#d7d3c7;--sun:#f5c25c;--accent:#b67e39;--dark:#303b33}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.shell{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,60px)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+header{position:sticky;top:0;background:#f5f1e8ed;backdrop-filter:blur(14px);z-index:25;border-bottom:1px solid var(--line)}.top{display:flex;align-items:center;height:74px;gap:25px}.brand{font:900 31px/1 ui-monospace,monospace;letter-spacing:-2px}.brand .dot{color:#df9b30}.strap{margin-right:auto;color:#777e73;font-size:11px}.nav{display:flex;align-items:center;gap:20px;font-size:12px;font-weight:750}.nav a:hover{color:#a6722e}
+.hero{position:relative;padding-top:36px}.hero:before{content:"";pointer-events:none;position:absolute;inset:0;opacity:.18;background-image:linear-gradient(#b6bcad 1px,transparent 1px),linear-gradient(90deg,#b6bcad 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(#000,#0002 80%)}
+.eyebrow{font:700 10px ui-monospace,monospace;letter-spacing:.14em;color:#a17640}.overline{position:relative;display:flex;justify-content:space-between;gap:12px}.stage{position:relative;display:grid;grid-template-columns:minmax(210px,1fr) minmax(220px,1.1fr) minmax(210px,1fr);align-items:center;gap:clamp(10px,2vw,30px);min-height:483px}.side{display:flex;flex-direction:column;gap:24px;position:relative;z-index:2}
+.choice{border:2px solid var(--ink);background:var(--surface);padding:17px 13px;display:flex;align-items:center;gap:13px;box-shadow:6px 6px 0 #dcd3c3;position:relative;transition:transform .2s,background .2s,box-shadow .2s;text-align:left;min-height:115px;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 13px,100% 100%,13px 100%,0 calc(100% - 13px))}
+.choice:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--sun)}.choice:hover,.choice.active{background:#fff3d6;transform:translateY(-4px);box-shadow:8px 10px 0 #dac8a8}.c-icon{background:var(--dark);color:#f0c576;font:bold 26px ui-monospace,monospace;display:grid;place-items:center;flex:0 0 48px;height:48px}.c-text{min-width:0;flex:1}.c-text i{display:block;font:700 11px monospace;color:#b1854a;font-style:normal}.c-text strong{display:block;font-size:18px;line-height:1.25;margin:4px 0}.c-text small{display:block;color:#68726b;font-size:10px;line-height:1.5}.arr{font-size:22px;transition:transform .2s}.choice:hover .arr{transform:translateX(4px)}
+.center{min-height:420px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative}.bubble{border:2px solid #2e3930;background:var(--surface);box-shadow:5px 5px 0 #dfd4bf;border-radius:5px;min-height:67px;width:min(100%,300px);padding:12px 15px;font-weight:700;line-height:1.6;position:relative;z-index:3;font-size:12px}.bubble:after{content:"";position:absolute;left:50%;bottom:-10px;width:16px;height:16px;transform:rotate(45deg);border-right:2px solid #2e3930;border-bottom:2px solid #2e3930;background:var(--surface)}.character{background:none;border:0;width:100%;height:314px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;transition:transform .2s}.character:hover{transform:translateY(-5px)}.character:before{content:"";position:absolute;bottom:41px;width:210px;height:210px;background:#e7e7d8;border:1px dashed #bdc2af;border-radius:50%}.character img{image-rendering:pixelated;position:relative;width:min(72%,200px);height:200px;object-fit:cover;border:6px solid #2e3c30;border-radius:30px;box-shadow:8px 8px 0 #b5bfae;margin-bottom:62px;z-index:2;background:white}.skate{position:absolute;z-index:3;bottom:23px;left:50%;transform:translateX(-50%) rotate(-13deg);width:183px;height:47px;background:#303a34;border:4px solid #c59a6b;box-shadow:0 10px 0 #aaa89b;border-radius:50%;display:grid;place-items:center;color:#e9c788;font:bold 15px monospace;letter-spacing:.1em}.skate:before,.skate:after{content:"";position:absolute;bottom:-16px;width:20px;height:13px;border-radius:4px;background:#242e28}.skate:before{left:23px}.skate:after{right:23px}.hint{text-align:center;color:#a27744;font:700 10px ui-monospace,monospace;letter-spacing:.08em;position:relative;margin-top:4px}
+.intro{text-align:center;padding:15px 0 31px;border-bottom:1px solid var(--line);position:relative}.intro h1{font-size:clamp(24px,3.8vw,46px);letter-spacing:-.075em;line-height:1.25;margin:7px 0 12px}.intro p{max-width:750px;color:var(--muted);font-size:13px;margin:auto;line-height:1.9}.intro .status{font-size:11px;color:#a07643;margin-top:13px}
+.featured{padding:34px 0 55px}.section-title{display:flex;align-items:center;gap:12px;margin-bottom:19px;flex-wrap:wrap}.section-title h2{font:900 25px ui-monospace,monospace;letter-spacing:-1px;margin:0}.section-title span{font-size:11px;color:#7e8479}.section-title button{margin-left:auto;border:0;background:transparent;font-weight:700;font-size:12px;border-bottom:1px solid}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.project{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;padding:0;text-align:left;min-width:0;transition:transform .2s,box-shadow .2s}.project:hover{transform:translateY(-6px);box-shadow:0 12px 20px #554b341b}.poster{aspect-ratio:16/9;height:auto;background:var(--cover,#607a6d);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.poster img{width:100%;height:100%;position:absolute;inset:0;object-fit:contain}.poster strong{font:bold clamp(16px,2vw,30px)/1.15 ui-monospace,monospace;color:#fffef5;text-shadow:1px 2px 10px #0006;z-index:1;text-align:center;padding:12px}.poster em{position:absolute;top:8px;left:8px;font:800 11px monospace;color:#fff;background:#29352e;padding:3px 6px;z-index:2;font-style:normal}.proj-txt{padding:13px}.proj-txt b{display:block;font-size:12px}.proj-txt small{font-size:10px;color:#888879}
+.lower{border-top:1px solid var(--line);padding:35px 0 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.lower article{background:var(--surface);padding:23px;border-top:4px solid #deb775}.lower h3{margin:0 0 10px;font-size:17px}.lower p{font-size:12px;color:#73786d;line-height:1.8}.lower a{font-size:12px;text-decoration:underline}footer{border-top:1px solid var(--line);padding:23px 0 35px;display:flex;justify-content:space-between;gap:15px;color:#7c8077;font-size:11px}footer a:hover{text-decoration:underline}
+.shade{position:fixed;inset:0;background:#121b15ad;z-index:39;opacity:0;pointer-events:none;transition:opacity .3s}.shade.open{opacity:1;pointer-events:auto}.drawer{position:fixed;right:0;top:0;bottom:0;width:min(690px,96vw);overflow-y:auto;background:#fffcf5;z-index:40;box-shadow:-30px 0 90px #0004;transform:translateX(110%);transition:transform .35s cubic-bezier(.15,.7,.2,1);padding:27px clamp(19px,3vw,45px) 45px}.drawer.open{transform:translateX(0)}.drawer-close{float:right;border:2px solid var(--ink);background:white;height:37px;width:37px;font-size:21px}.drawer small.cap{font:700 11px ui-monospace,monospace;color:#ac7b42}.drawer h2{font-size:clamp(27px,3.4vw,43px);line-height:1.15;letter-spacing:-.06em;margin:22px 0 10px}.drawer .summary{font-size:13px;color:#6a766d;line-height:1.95}.entry{padding:18px 0;border-bottom:1px solid #dcdccf}.entry .period{color:#b38b55;font:700 11px ui-monospace,monospace}.entry h3{margin:5px 0;font-size:17px}.entry p{margin:4px 0;color:#6a726d;font-size:12px;line-height:1.8}.entry button{font-size:12px;padding:10px 12px;background:#f4ecd9;border:1px solid #bca67a;text-align:left;width:100%}.drawerGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}.mini{background:#f6f3e9;border:1px solid #d5d8cc;text-align:left;padding:0;overflow:hidden}.mini .poster{aspect-ratio:16/9;height:auto}.mini .mini-info{padding:10px}.mini strong{display:block;font-size:13px}.mini small{color:#73796e}.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.tag{background:#e9ede2;border:1px solid #cfd6c7;border-radius:3px;padding:5px 8px;font-size:11px}.detail-cover{aspect-ratio:16/9;height:auto;background:#677b6d;display:flex;align-items:center;justify-content:center;margin:15px 0 20px;position:relative}.detail-cover img{width:100%;height:100%;object-fit:contain}.detail-cover b{font-size:31px;color:white;text-shadow:0 4px 15px #0006}.detail-block{margin:26px 0}.detail-block h3{font-size:13px;letter-spacing:.06em;margin-bottom:8px;color:#a37a43}.detail-block p{font-size:14px;line-height:1.9;white-space:pre-wrap}.actionlink{display:inline-block;background:#313d35;color:white;padding:11px 18px;font-size:13px;margin-top:10px}.back{border:0;background:none;padding:6px 0;color:#8b6b41;font-weight:700}
+.statusbar{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);z-index:60;padding:9px 14px;background:#25352d;color:white;box-shadow:0 6px 20px #0003;font-size:12px;border-radius:6px;display:none}
+@media(max-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}.strap{display:none}.stage{grid-template-columns:1fr 1.12fr 1fr}.choice{padding:15px 8px;gap:8px}.c-icon{flex-basis:36px;height:36px;font-size:21px}.c-text strong{font-size:15px}.c-text small{font-size:9px}}
+@media(max-width:740px){.nav{gap:12px;font-size:12px}.top{height:62px}.stage{grid-template-columns:1fr 1fr;gap:15px;min-height:0;padding-top:18px}.center{grid-column:1/-1;grid-row:1;min-height:365px}.side{gap:10px}.side.left{grid-column:1;grid-row:2}.side.right{grid-column:2;grid-row:2}.choice{min-height:96px}.c-text strong{font-size:13px}.c-text small{display:none}.character{height:270px}.character img{width:160px;height:160px}.bubble{width:min(85%,300px)}.cards{grid-template-columns:repeat(2,1fr)}.lower{grid-template-columns:1fr}.drawerGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.shell{padding:0 15px}.stage{gap:9px}.choice{padding:13px 7px;min-height:86px}.c-icon{display:none}.c-text strong{font-size:12px}.arr{font-size:15px}.drawerGrid{grid-template-columns:1fr}.poster{height:142px}.intro h1{font-size:25px}.featured{padding-top:23px}footer{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+/* Pixel-style contact section matching the main homepage palette */
+#works{scroll-margin-top:88px}
+.contact-section{scroll-margin-top:82px;padding:30px 0 80px}
+.contact-frame{background:#fffdf8;color:#253229;border:2px solid #2b3830;box-shadow:9px 9px 0 #ded6c4;padding:clamp(23px,4vw,46px);position:relative;overflow:hidden}
+.contact-frame:before{content:"";position:absolute;right:0;top:0;width:88px;height:88px;opacity:.34;pointer-events:none;background-image:linear-gradient(#cfbf96 1px,transparent 1px),linear-gradient(90deg,#cfbf96 1px,transparent 1px);background-size:16px 16px;mask-image:linear-gradient(225deg,#000,transparent)}
+.contact-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.contact-top .eyebrow{color:#ad7a37}
+.contact-signal{display:flex;align-items:center;gap:8px;border:1px solid #bbc9b7;background:#edf3e8;color:#48654d;padding:6px 10px;font:700 10px ui-monospace,monospace;letter-spacing:.06em}
+.signal-dot{display:inline-block;width:8px;height:8px;background:#7ea47b;box-shadow:3px 3px 0 #b6cfad}
+.contact-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0 25px}
+.contact-title-wrap{min-width:0;flex:1}
+.contact-heading{font-size:clamp(34px,4.7vw,56px);line-height:1.25;letter-spacing:-.06em;margin:10px 0}
+.contact-heading span{color:#c89743}
+.contact-desc{font-size:clamp(13px,1.5vw,15px);color:#68746a;line-height:1.9;margin:0;max-width:690px}
+.contact-topics{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.contact-topics span{font:700 10px ui-monospace,monospace;border:1px solid #d2c4a7;color:#87683d;background:#fcf5e5;padding:5px 9px}
+.contact-pixel-illustration{position:relative;flex:0 0 195px;height:165px;display:grid;place-items:center;margin-right:12px}
+.contact-pixel-illustration:before{content:"";position:absolute;width:141px;height:115px;background:#edf0e6;border:2px solid #c1caba;box-shadow:6px 6px 0 #d5dbcc;transform:rotate(-3deg)}
+.pixel-envelope{position:relative;z-index:2;transform:rotate(5deg);animation:contact-float 3.8s ease-in-out infinite}
+.pixel-envelope svg{image-rendering:pixelated;overflow:visible}
+.pixel-star{position:absolute;z-index:3;color:#c59237;font:26px ui-monospace,monospace}
+.star-one{right:14px;top:2px}.star-two{left:8px;bottom:27px;font-size:16px;color:#84a180}
+.pixel-speech{position:absolute;z-index:3;right:-7px;bottom:-7px;background:#fff;border:2px solid #2b3830;box-shadow:3px 3px 0 #c6cbbb;padding:5px 10px;color:#2b3830;font:800 10px ui-monospace,monospace;text-align:center}
+.pixel-speech span{display:block;font:600 10px system-ui,-apple-system,"PingFang SC",sans-serif}
+@keyframes contact-float{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.contact-card{display:flex;flex-direction:column;align-items:stretch;gap:12px;background:#f7f4ea;border:2px solid #354239;box-shadow:5px 5px 0 #d8d0bb;color:#253229;padding:clamp(17px,2.5vw,25px);min-height:238px;text-decoration:none;min-width:0;transition:transform .2s,box-shadow .2s,background .2s}
+.contact-card:nth-child(2){background:#f1f5ee}
+.contact-card:hover,.contact-card:focus-within{background:#fffaed;transform:translate(-2px,-4px);box-shadow:8px 9px 0 #d5c59f}
+.contact-card:nth-child(2):hover,.contact-card:nth-child(2):focus-within{background:#f1f8ef}
+.contact-card-head{display:flex;align-items:center;gap:12px}
+.contact-icon{width:48px;height:48px;border:2px solid #334137;display:grid;place-items:center;background:#ffe3aa;box-shadow:3px 3px 0 #d4c39f;flex:0 0 48px}
+.contact-card:nth-child(2) .contact-icon{background:#d8e8d5;box-shadow:3px 3px 0 #c8dac8}
+.contact-icon svg{display:block;image-rendering:pixelated}
+.contact-label{font:800 12px ui-monospace,monospace;color:#8e672f;letter-spacing:.075em}
+.contact-card:nth-child(2) .contact-label{color:#55735c}
+.contact-value{display:block;overflow-wrap:anywhere;letter-spacing:-.045em;font-size:clamp(18px,2.25vw,27px);line-height:1.3;margin-top:4px;color:#29352c}
+.contact-note{color:#738076;font-size:12px;line-height:1.6}
+.contact-action,.contact-copy{margin-top:auto;align-self:flex-start;display:inline-flex;gap:20px;align-items:center;justify-content:space-between;border:2px solid #2d3b32;background:#33453a;color:#fffaf0;padding:10px 14px;font-weight:700;font-size:12px;line-height:1.3;text-decoration:none;box-shadow:3px 3px 0 #bcb79c;transition:background .2s,transform .2s}
+.contact-action:hover,.contact-copy:hover{background:#536e5b;transform:translateY(-2px)}
+.contact-copy{cursor:pointer}
+.contact-footnote{border-top:1px dashed #d4d4c8;margin-top:25px;padding-top:17px;display:flex;align-items:center;gap:9px;color:#758077;font-size:12px}
+.contact-foot-sparkle{color:#d29c3e;font-size:18px}
+.contact-place{margin-left:auto;font:700 10px ui-monospace,monospace;letter-spacing:.08em;color:#a28c68}
+@media(max-width:720px){.contact-pixel-illustration{flex-basis:142px;height:126px;margin-right:0}.contact-pixel-illustration:before{width:107px;height:92px}.pixel-envelope svg{width:91px;height:77px}.pixel-speech{font-size:8px}.pixel-speech span{font-size:9px}.contact-hero{gap:14px}}
+@media(max-width:600px){.contact-grid{grid-template-columns:1fr}.contact-hero{align-items:flex-start}.contact-pixel-illustration{flex-basis:90px;width:90px;height:100px;margin-right:0}.contact-pixel-illustration:before{width:75px;height:72px;box-shadow:3px 3px 0 #d5dbcc}.pixel-envelope svg{width:67px;height:61px}.pixel-speech{display:none}.star-one{right:-6px}.star-two{left:-8px;bottom:0}.contact-frame{box-shadow:6px 6px 0 #ded6c4}.contact-topics{margin-top:12px}.contact-card{min-height:204px}.contact-section{padding:23px 0 62px}}
+@media(max-width:420px){.contact-hero{gap:5px}.contact-pixel-illustration{flex-basis:65px;width:65px}.contact-heading{font-size:34px}.contact-topics span{font-size:9px;padding:5px 6px}.contact-place{display:none}.nav{gap:9px;font-size:11px}.brand{font-size:27px}.top{gap:10px}}
+@media(prefers-reduced-motion:reduce){.pixel-envelope{animation:none}}
+.cover-fallback{display:block;position:relative;z-index:1;color:#fffef5;font-size:clamp(15px,2vw,27px);font-weight:800;text-align:center;line-height:1.35;padding:13px;text-shadow:0 3px 12px #0005;overflow-wrap:anywhere}
+
+.lang-switch{display:flex;align-items:center;gap:2px;background:#fffdf8;border:1px solid #b9baa9;padding:3px;margin-left:4px;flex-shrink:0}
+.lang-switch button{padding:5px 7px;border:0;background:none;color:#586358;font:bold 11px ui-monospace,monospace;white-space:nowrap}
+.lang-switch button[aria-pressed="true"]{color:#fffdf8;background:#33493c}
+.character.board-spin .skate{animation:board-orbit .85s ease-in-out 1}
+@keyframes board-orbit{0%{transform:translateX(-50%) rotate(-13deg)}25%{transform:translateX(-50%) translate(75px,-58px) rotate(77deg)}50%{transform:translateX(-50%) translate(0,-144px) rotate(167deg)}75%{transform:translateX(-50%) translate(-75px,-58px) rotate(257deg)}100%{transform:translateX(-50%) rotate(347deg)}}
+@media(max-width:720px){.top{flex-wrap:wrap;height:auto;min-height:65px;padding-top:8px;padding-bottom:8px;gap:8px}.strap{display:none}.nav{margin-left:auto;gap:12px}.lang-switch{margin-left:auto}.lang-switch button{font-size:10px;padding:5px}}
+@media(prefers-reduced-motion:reduce){.character.board-spin .skate{animation:none}}
+</style>
+</head><body>
+<header><nav class="shell top"><a class="brand" href="#top">NINE<span class="dot">.</span></a><span class="strap">CREATIVE STRATEGY / AI / BUSINESS</span><div class="nav"><a href="#top">首页</a><a href="#works">项目展示</a><a href="#contact">联络方式</a></div><div class="lang-switch" role="group" aria-label="Language"><button data-lang="zh" aria-pressed="true">中文</button><button data-lang="ja" aria-pressed="false">日本語</button><button data-lang="en" aria-pressed="false">EN</button></div></nav></header>
+<main id="top"><section class="hero"><div class="shell"><div class="overline eyebrow"><span>◈ PLAYER OF EARTH ONLINE</span><span>INTERACTIVE PORTFOLIO / CN · 2026</span></div>
+<div class="stage">
+<div class="side left" id="leftChoices"></div>
+<div class="center"><div class="bubble" id="speech" aria-live="polite">你好，欢迎来到我的作品集！</div><button class="character" id="character" aria-label="点击角色了解我"><img id="avatar" src="../avatar.jpg" alt="NINE 的像素头像"><span class="skate">NINE / PLAY</span></button><span class="hint">01 / 自我介绍　[点击角色]</span></div>
+<div class="side right" id="rightChoices"></div>
+</div><div class="intro"><div class="eyebrow" id="role">CREATIVE STRATEGY · AI · BUSINESS</div><h1 id="headline"></h1><p id="summary"></p><div class="status" id="status"></div></div></div></section>
+<section class="shell featured" id="works"><div class="section-title"><h2>SELECTED WORKS<span style="color:#c89643">.</span></h2><span>精选作品与实际项目</span><button id="allWorks">查看全部 ↗</button></div><div class="cards" id="featuredCards"></div></section>
+<section id="journey" class="shell lower"><article><div class="eyebrow">01 / BUSINESS</div><h3>从商业问题出发</h3><p>游戏发行、内容营销、品牌联名和项目协作，强调策略与可验证的执行过程。</p><a href="#" data-open="business">查看商业项目 ↗</a></article><article><div class="eyebrow">02 / CREATIVE</div><h3>把想法做成作品</h3><p>从 AI 广告、数字影像到交互原型，持续探索技术与叙事如何服务用户体验。</p><a href="#" data-open="creative">查看创意项目 ↗</a></article><article><div class="eyebrow">03 / GLOBAL</div><h3>从中国到日本</h3><p>将中国市场的商业经验延伸至日本：涵盖 AI 创意研究、品牌赴日项目落地，以及中日英三语跨文化协作。</p><a href="#" data-open="career">了解经历 ↗</a></article></section>
+<section class="contact-section" id="contact" aria-labelledby="contactHeading">
+<div class="shell"><div class="contact-frame">
+  <div class="contact-top">
+    <span class="eyebrow">CONTACT / GET IN TOUCH</span>
+    <span class="contact-signal"><span class="signal-dot" aria-hidden="true"></span> OPEN TO NEW IDEAS</span>
+  </div>
+  <div class="contact-hero">
+    <div class="contact-title-wrap">
+      <h2 class="contact-heading" id="contactHeading">联络方式<span>.</span></h2>
+      <p class="contact-desc" id="contactLead">无论是工作机会、游戏营销、AI 创意，还是跨文化合作，都欢迎来信交流。</p>
+      <div class="contact-topics" aria-hidden="true"><span>GAME</span><span>STRATEGY</span><span>AI CREATIVE</span></div>
+    </div>
+    <div class="contact-pixel-illustration" aria-hidden="true">
+      <span class="pixel-star star-one">✦</span><span class="pixel-star star-two">✳</span>
+      <div class="pixel-envelope">
+        <svg viewBox="0 0 80 64" width="122" height="100" aria-hidden="true" shape-rendering="crispEdges">
+          <rect x="10" y="12" width="60" height="42" fill="#f6c56e" stroke="#28372f" stroke-width="4"/>
+          <path d="M12 16L40 39L68 16" stroke="#28372f" stroke-width="4" fill="none" stroke-linejoin="miter"/>
+          <path d="M12 50L31 34M68 50L49 34" stroke="#28372f" stroke-width="3" fill="none"/>
+          <rect x="35" y="28" width="10" height="10" fill="#fff1c4"/>
+          <rect x="22" y="56" width="8" height="4" fill="#79978a"/><rect x="34" y="56" width="12" height="4" fill="#79978a"/>
+        </svg>
+      </div>
+      <span class="pixel-speech">HELLO!<span>来聊聊吧 ✦</span></span>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-card" id="email" href="mailto:aaaaanine@gmail.com" aria-label="发送邮件至 aaaaanine@gmail.com">
+      <span class="contact-card-head">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="31" height="31" shape-rendering="crispEdges"><rect x="3" y="7" width="26" height="19" fill="#f4c35e" stroke="#27382e" stroke-width="2"/><path d="M5 9L16 19L27 9" fill="none" stroke="#27382e" stroke-width="2"/><path d="M5 24L13 17M27 24L19 17" fill="none" stroke="#27382e" stroke-width="2"/></svg>
+        </span>
+        <span class="contact-label">01 / EMAIL</span>
+      </span>
+      <strong class="contact-value" id="emailText">aaaaanine@gmail.com</strong>
+      <span class="contact-note">工作机会、项目合作与正式沟通</span>
+      <span class="contact-action">发送邮件 <span aria-hidden="true">↗</span></span>
+    </a>
+    <div class="contact-card">
+      <span class="contact-card-head">
+        <span class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="31" height="31" shape-rendering="crispEdges"><path d="M4 6H28V23H14L8 29V23H4Z" fill="#bed2bd" stroke="#27382e" stroke-width="2"/><rect x="9" y="14" width="3" height="3" fill="#27382e"/><rect x="15" y="14" width="3" height="3" fill="#27382e"/><rect x="21" y="14" width="3" height="3" fill="#27382e"/></svg>
+        </span>
+        <span class="contact-label">02 / WECHAT</span>
+      </span>
+      <strong class="contact-value" id="wechatText">A9---9</strong>
+      <span class="contact-note">欢迎添加微信，轻松交流</span>
+      <button class="contact-copy" id="copyWechat" type="button" aria-label="复制微信号">复制微信号 <span aria-hidden="true">↗</span></button>
+    </div>
+  </div>
+  <div class="contact-footnote"><span aria-hidden="true" class="contact-foot-sparkle">✳</span><span>期待你的来信，也期待下一次有趣的合作。</span><span class="contact-place">[ NINE · TOKYO ]</span></div>
+</div></div></section>
+</main><footer class="shell"><span>© 2026 NINE · Player of Earth Online</span><a href="https://anine998.github.io/">旧版个人网站 ↗</a><a href="../portfolio-v2/admin/">内容管理（需授权） ↗</a></footer>
+<div class="shade" id="shade"></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="作品详情" aria-hidden="true"><button class="drawer-close" id="closeDrawer" aria-label="关闭">×</button><div id="drawerContent"></div></aside><div class="statusbar" id="toast" role="status"></div>
+<script>
+(()=>{"use strict";
+const $=id=>document.getElementById(id);const elem=(tag,cl,txt)=>{let x=document.createElement(tag);if(cl)x.className=cl;if(txt!=null)x.textContent=String(txt);return x};let data,originalData,translations,locale="zh",dialogBefore=null,backPage=null,chatIndex=0;
+const allowedImage=v=>typeof v==="string" && (/^https:\/\//i.test(v)||/^(?:\.\.?\/|assets\/|\/portfolio-v2\/)[a-zA-Z0-9_\-./%]+$/.test(v));
+const allowedLink=v=>typeof v==="string"&& (/^https:\/\//i.test(v)||/^(?:\.\.?\/|\/|#)[a-zA-Z0-9_\-./%?=&]+$/.test(v));
+
+const staticTranslations={"zh":{"menu":["首页","项目展示","联络方式"],"selected":["精选作品与实际项目","查看全部 ↗"],"contact":["联络方式","发送邮件","复制微信号","期待你的来信，也期待下一次有趣的合作。"],"bottom":["从商业问题出发","把想法做成作品","从中国到日本"],"more":["查看商业项目 ↗","查看创意项目 ↗","了解经历 ↗"],"lower":["游戏发行、内容营销、品牌联名和项目协作，强调策略与可验证的执行过程。","从 AI 广告、数字影像到交互原型，持续探索技术与叙事如何服务用户体验。","将中国市场的商业经验延伸至日本：涵盖 AI 创意研究、品牌赴日项目落地，以及中日英三语跨文化协作。"],"misc":{"about":"我的介绍","now":"目前","career":"职业与学习轨迹","japan":"日本与跨文化实践","intro":"项目背景","role":"我的职责","result":"项目结果","note":"补充说明","all":"全部作品","allDesc":"按项目查看具体职责、案例背景和作品链接。","back":"← 返回项目目录","mail":"发送邮件 ↗","link":"查看相关链接 ↗","empty":"暂无精选作品","old":"旧版个人网站 ↗","admin":"内容管理（需授权） ↗"}},"ja":{"menu":["ホーム","プロジェクト","お問い合わせ"],"selected":["主なプロジェクト・実績","すべて見る ↗"],"contact":["お問い合わせ","メールを送る","WeChat IDをコピー","ご連絡をお待ちしています。一緒に面白いことを始めましょう。"],"bottom":["課題から考える","アイデアを形にする","中国から日本へ"],"more":["ビジネス実績を見る ↗","制作作品を見る ↗","経歴を見る ↗"],"lower":["ゲームパブリッシング、コンテンツマーケティング、ブランド協業を通じた戦略立案と実行。","AI広告、デジタル映像、インタラクティブな試作を通して、技術と物語の可能性を探ります。","中国で培ったマーケティング経験を、日本でのAI研究、市場開拓、国際協業につなげています。"],"misc":{"about":"自己紹介","now":"現在","career":"職務・学習経歴","japan":"日本での活動・国際協業","intro":"プロジェクト概要","role":"担当業務","result":"成果","note":"補足","all":"全プロジェクト","allDesc":"担当内容や実績、作品の詳細をご紹介します。","back":"← プロジェクト一覧に戻る","mail":"メールを送る ↗","link":"作品・関連リンク ↗","empty":"掲載作品はありません","old":"旧ポートフォリオ ↗","admin":"編集・管理（要認証） ↗"}},"en":{"menu":["Home","Projects","Contact"],"selected":["Selected projects and professional work","View all ↗"],"contact":["Get in touch","Send email","Copy WeChat ID","I'd love to hear from you. Let's build something interesting together."],"bottom":["Start with the problem","Make ideas tangible","From China to Japan"],"more":["Business projects ↗","Creative work ↗","Explore my journey ↗"],"lower":["Strategic marketing and delivery across game publishing, content, and brand partnerships.","Exploring how AI-powered films, digital storytelling, and interactive prototypes enhance user experiences.","Bringing China-market experience into AI research, market-entry projects, and international collaboration in Japan."],"misc":{"about":"About me","now":"Currently","career":"Career & Education","japan":"Japan & Cross-Cultural Work","intro":"Overview","role":"My role","result":"Results","note":"Additional notes","all":"All projects","allDesc":"Explore the scope, responsibilities, results, and links for each project.","back":"← Back to projects","mail":"Send email ↗","link":"Explore project ↗","empty":"No projects yet","old":"Original site ↗","admin":"Content editor (authorized) ↗"}}};
+function tr(k){return staticTranslations[locale]?.misc[k]||staticTranslations.zh.misc[k]||k}
+function applyLanguage(code){
+ locale=["zh","ja","en"].includes(code)?code:"zh";document.documentElement.lang=locale==="zh"?"zh-CN":locale;
+ const t=translations?.[locale];data=JSON.parse(JSON.stringify(originalData));
+ if(t){Object.assign(data.identity,t.identity);(data.sections||[]).forEach((s,i)=>{if(t.sections[i]){s.title=t.sections[i][0];s.subtitle=t.sections[i][1]}});(data.career||[]).forEach((v,i)=>{if(t.career[i]){v.title=t.career[i][0];v.subtitle=t.career[i][1];v.body=t.career[i][2]}});(data.japan||[]).forEach((v,i)=>{if(t.japan[i]){v.title=t.japan[i][0];v.body=t.japan[i][1]}});(data.projects||[]).forEach(p=>{const q=t.projects?.[p.id];if(q){p.title=q[0];p.tag=q[1];p.summary=q[2];p.role=q[3];p.result=q[4]}})}
+ const tx=staticTranslations[locale]||staticTranslations.zh;
+ document.querySelectorAll(".nav a").forEach((e,i)=>e.textContent=tx.menu[i]);
+ document.querySelectorAll(".lang-switch button").forEach(e=>e.setAttribute("aria-pressed",String(e.dataset.lang===locale)));
+ document.querySelector(".featured .section-title span").textContent=tx.selected[0];
+ $("allWorks").textContent=tx.selected[1];
+ document.querySelector("#contactHeading").innerHTML=tx.contact[0]+'<span>.</span>';
+ document.querySelector(".contact-action").firstChild.textContent=tx.contact[1]+" ";
+ $("copyWechat").firstChild.textContent=tx.contact[2]+" ";
+ document.querySelector(".contact-footnote span:nth-child(2)").textContent=tx.contact[3];
+ document.querySelectorAll("#journey article").forEach((e,i)=>{e.querySelector("h3").textContent=tx.bottom[i];e.querySelector("p").textContent=tx.lower[i];e.querySelector("a").textContent=tx.more[i]});
+ document.querySelector('footer a[href="https://anine998.github.io/"]').textContent=tx.misc.old;
+ document.querySelector('footer a[href="../portfolio-v2/admin/"]').textContent=tx.misc.admin;
+ chatIndex=0;renderMain();close();
+}
+document.querySelectorAll(".lang-switch button").forEach(b=>b.addEventListener("click",()=>applyLanguage(b.dataset.lang)));
+
+function showToast(s){const t=$("toast");t.textContent=s;t.style.display="block";setTimeout(()=>t.style.display="none",3500)}
+function addCover(parent,p,small=false){let c=elem("div",small?"poster":"detail-cover");c.style.background=p.accent||"#60786b";if(allowedImage(p.cover)){let image=elem("img");image.src=p.cover.startsWith("assets/")?"../portfolio-v2/"+p.cover:p.cover;image.alt=p.title||"";image.loading="lazy";image.onerror=()=>{image.remove();c.append(elem("b","cover-fallback",p.title||"PROJECT"))};c.append(image)}else{c.append(elem("b",null,p.title||"PROJECT"))}parent.append(c);return c}
+function renderOptions(){const sec=data.sections||[];["left","right"].forEach((side,i)=>{let wrap=$(side+"Choices");wrap.replaceChildren();sec.slice(i*2,i*2+2).forEach(s=>{let btn=elem("button","choice");btn.type="button";btn.setAttribute("aria-expanded","false");let ic=elem("span","c-icon",s.icon||"◇"),t=elem("span","c-text"),n=elem("i",null,s.number+" / "+s.en),h=elem("strong",null,s.title),sub=elem("small",null,s.subtitle),ar=elem("span","arr","↗");t.append(n,h,sub);btn.append(ic,t,ar);btn.addEventListener("click",()=>s.id==="about"?openAbout():openSection(s.id));wrap.append(btn)})})}
+function renderMain(){let i=data.identity||{};document.title="NINE. | JIANG CHENYING Portfolio";$("role").textContent=i.role||i.eyebrow||"";$("headline").textContent=i.headline||"";$("summary").textContent=i.summary||"";$("status").textContent=i.status||"";$("speech").textContent=(i.greeting||[])[0]||"你好，欢迎！";$("emailText").textContent=i.email||"aaaaanine@gmail.com";$("email").href="mailto:"+(i.email||"aaaaanine@gmail.com");$("email").setAttribute("aria-label","发送邮件至 "+(i.email||"aaaaanine@gmail.com"));$("wechatText").textContent=i.wechat||"A9---9";$("contactLead").textContent=i.contactLabel||"欢迎交流游戏、AI 创意与国际业务合作。";if(allowedImage(i.avatar))$("avatar").src=i.avatar;renderOptions();renderFeatured()}
+function renderFeatured(){const area=$("featuredCards");area.replaceChildren();(data.projects||[]).filter(p=>p.featured&&p.category!=="play").slice(0,5).forEach((p,i)=>{let btn=elem("button","project"),cover=addCover(btn,p,true),number=elem("em",null,("0"+(i+1)).slice(-2));cover.append(number);let bottom=elem("div","proj-txt"),title=elem("b",null,p.title),tag=elem("small",null,p.tag);bottom.append(title,tag);btn.append(bottom);btn.addEventListener("click",()=>openProject(p.id));area.append(btn)});if(!area.childNodes.length)area.append(elem("p",null,tr("empty")))}
+function drawerOpen(){dialogBefore=document.activeElement;$("shade").classList.add("open");$("drawer").classList.add("open");$("drawer").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";$("closeDrawer").focus()}
+function clearDrawer(){const c=$("drawerContent");c.replaceChildren();return c}
+function drawerHead(c,label,title,description){c.append(elem("small","cap",label));c.append(elem("h2",null,title));if(description)c.append(elem("p","summary",description))}
+function close(){if(!$("drawer").classList.contains("open"))return;$("shade").classList.remove("open");$("drawer").classList.remove("open");$("drawer").setAttribute("aria-hidden","true");document.body.style.overflow="";backPage=null;if(dialogBefore&&dialogBefore.focus)dialogBefore.focus()}
+function paraBlock(c,title,content){if(!content)return;let b=elem("section","detail-block");b.append(elem("h3",null,title),elem("p",null,content));c.append(b)}
+function listRow(c,rec){let e=elem("div","entry");if(rec.period)e.append(elem("span","period",rec.period));e.append(elem("h3",null,rec.title));if(rec.subtitle)e.append(elem("p",null,rec.subtitle));if(rec.body)e.append(elem("p",null,rec.body));c.append(e)}
+function openAbout(){backPage=null;let c=clearDrawer(),i=data.identity||{};drawerHead(c,"01 / ABOUT ME",i.name||"NINE",i.motto||"");paraBlock(c,tr("about"),i.about||i.summary);paraBlock(c,tr("now"),i.status);let a=elem("a","actionlink",tr("mail"));a.href="mailto:"+(i.email||"");c.append(a);drawerOpen()}
+function projectsFor(id){const visible=(data.projects||[]).filter(p=>p.category!=="play");if(id==="business")return visible.filter(p=>p.category==="business");if(id==="creative")return visible.filter(p=>p.category==="creative");return visible}
+function openSection(id){if(id==="about")return openAbout();backPage=null;let c=clearDrawer(),s=(data.sections||[]).find(s=>s.id===id);if(id==="all"){drawerHead(c,"ALL PROJECTS",tr("all"),tr("allDesc"))}else if(s){drawerHead(c,s.number+" / "+s.en,s.title,s.subtitle)}else{return}
+if(id==="career"){c.append(elem("h3",null,tr("career")));(data.career||[]).forEach(r=>listRow(c,r));c.append(elem("h3",null,tr("japan")));(data.japan||[]).forEach(r=>listRow(c,r))}
+else{let arr=projectsFor(id);let grid=elem("div","drawerGrid");arr.forEach(p=>{let b=elem("button","mini");addCover(b,p,true);let t=elem("div","mini-info");t.append(elem("strong",null,p.title),elem("small",null,p.tag));b.append(t);b.addEventListener("click",()=>openProject(p.id,id));grid.append(b)});c.append(grid)}drawerOpen()}
+function openProject(id,origin){const p=(data.projects||[]).find(x=>x.id===id&&x.category!=="play");if(!p)return;backPage=origin||"all";let c=clearDrawer();let back=elem("button","back",tr("back"));back.addEventListener("click",()=>openSection(backPage||"all"));c.append(back);drawerHead(c,(p.category||"PROJECT").toUpperCase()+" / "+(p.date||"") ,p.title,p.tag||"");addCover(c,p);let tags=elem("div","kpi");[p.status,p.date,p.category].filter(Boolean).forEach(x=>tags.append(elem("span","tag",x)));c.append(tags);paraBlock(c,tr("intro"),p.summary);paraBlock(c,tr("role"),p.role);paraBlock(c,tr("result"),p.result);paraBlock(c,tr("note"),p.note);if(allowedLink(p.link)){let a=elem("a","actionlink",locale==="zh"?(p.linkLabel||tr("link")):tr("link"));a.href=p.link;a.target="_blank";a.rel="noopener noreferrer";c.append(a)}drawerOpen()}
+function nextBubble(){const lines=data?.identity?.greeting||[];if(!lines.length)return;chatIndex=(chatIndex+1)%lines.length;$("speech").textContent=lines[chatIndex];$("character").classList.remove("board-spin");void $("character").offsetWidth;$("character").classList.add("board-spin")} $("character").addEventListener("click",nextBubble); setInterval(()=>{if(data&&!document.hidden)nextBubble()},2200);
+async function copyWechat(){const value=$("wechatText").textContent.trim();if(!value)return;try{if(!navigator.clipboard||!window.isSecureContext)throw Error("clipboard unsupported");await navigator.clipboard.writeText(value);showToast("微信号已复制："+value)}catch(err){let x=elem("textarea");x.value=value;x.style.position="fixed";x.style.opacity="0";document.body.append(x);x.focus();x.select();const ok=document.execCommand("copy");x.remove();showToast(ok?"微信号已复制："+value:"微信号："+value+"，可长按文字复制")}}$("copyWechat").addEventListener("click",copyWechat);
+$("allWorks").addEventListener("click",()=>openSection("all"));$("closeDrawer").addEventListener("click",close);$("shade").addEventListener("click",close);document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});document.querySelectorAll("[data-open]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openSection(a.dataset.open)}));
+fetch("../portfolio-v2/content.json?refresh="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(async j=>{originalData=j;try{const z=await fetch("./i18n.json",{cache:"no-store"});translations=await z.json()}catch(e){console.warn("i18n unavailable",e);translations={}}applyLanguage(new URLSearchParams(location.search).get("lang")||"zh");let hash=location.hash.slice(1);if(["about","career","business","creative"].includes(hash))openSection(hash)}).catch(err=>{$("speech").textContent="作品内容加载失败，请稍后刷新。";console.error(err)});
+})();
+</script>
+</body></html>
