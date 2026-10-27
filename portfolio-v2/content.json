@@ -23,6 +23,14 @@
   },
   "sections": [
     {
+      "id": "about",
+      "number": "01",
+      "title": "自我介绍",
+      "en": "ABOUT ME",
+      "subtitle": "认识 JIANG CHENYING · 经历与方向",
+      "icon": "✧"
+    },
+    {
       "id": "career",
       "number": "02",
       "title": "职业与日本经历",
@@ -45,14 +53,6 @@
       "en": "AI & CONTENT",
       "subtitle": "数字影像、AI 实验与创意原型",
       "icon": "✳"
-    },
-    {
-      "id": "play",
-      "number": "05",
-      "title": "游戏与互动实践",
-      "en": "GAME & PLAY",
-      "subtitle": "游戏体验、研究、用户互动与展会",
-      "icon": "◇"
     }
   ],
   "career": [
