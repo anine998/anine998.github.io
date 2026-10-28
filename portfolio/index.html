@@ -4,6 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e8">
 <meta name="description" content="NINE.| JIANG CHENYING Portfolio — Marketing, Game Publishing, AI and Creative Strategy.">
 <title>NINE.| JIANG CHENYING Portfolio</title>
+<link rel="canonical" href="https://anine998.github.io/portfolio">
+<base href="/portfolio/">
 <style>
 :root{--bg:#f5f1e8;--surface:#fffdf8;--ink:#222824;--muted:#687168;--line:#d7d3c7;--sun:#f5c25c;--accent:#b67e39;--dark:#303b33}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.shell{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,60px)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
@@ -148,6 +150,11 @@ header{position:sticky;top:0;background:#f5f1e8ed;backdrop-filter:blur(14px);z-i
 <div class="shade" id="shade"></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="作品详情" aria-hidden="true"><button class="drawer-close" id="closeDrawer" aria-label="关闭">×</button><div id="drawerContent"></div></aside><div class="statusbar" id="toast" role="status"></div>
 <script>
 (()=>{"use strict";
+const initialParams=window.location.search,initialHash=window.location.hash.slice(1);
+function cleanPortfolioUrl(){if(window.location.pathname!=="/portfolio"||window.location.search||window.location.hash)window.history.replaceState(window.history.state,"","/portfolio")}
+cleanPortfolioUrl();
+window.addEventListener("hashchange",cleanPortfolioUrl);
+document.querySelectorAll('a[href="#top"],a[href="#works"],a[href="#contact"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.querySelector(a.getAttribute("href"))?.scrollIntoView({behavior:"smooth",block:"start"});cleanPortfolioUrl()}));
 const $=id=>document.getElementById(id);const elem=(tag,cl,txt)=>{let x=document.createElement(tag);if(cl)x.className=cl;if(txt!=null)x.textContent=String(txt);return x};let data,originalData,translations,locale="zh",dialogBefore=null,backPage=null,chatIndex=0;
 const allowedImage=v=>typeof v==="string" && (/^https:\/\//i.test(v)||/^(?:\.\.?\/|assets\/|\/portfolio-v2\/)[a-zA-Z0-9_\-./%]+$/.test(v));
 const allowedLink=v=>typeof v==="string"&& (/^https:\/\//i.test(v)||/^(?:\.\.?\/|\/|#)[a-zA-Z0-9_\-./%?=&]+$/.test(v));
@@ -196,7 +203,7 @@ function openProject(id,origin){const p=(data.projects||[]).find(x=>x.id===id&&x
 function nextBubble(){const lines=data?.identity?.greeting||[];if(!lines.length)return;chatIndex=(chatIndex+1)%lines.length;$("speech").textContent=lines[chatIndex];$("character").classList.remove("board-spin");void $("character").offsetWidth;$("character").classList.add("board-spin")} $("character").addEventListener("click",nextBubble); setInterval(()=>{if(data&&!document.hidden)nextBubble()},2200);
 async function copyWechat(){const value=$("wechatText").textContent.trim();if(!value)return;try{if(!navigator.clipboard||!window.isSecureContext)throw Error("clipboard unsupported");await navigator.clipboard.writeText(value);showToast("微信号已复制："+value)}catch(err){let x=elem("textarea");x.value=value;x.style.position="fixed";x.style.opacity="0";document.body.append(x);x.focus();x.select();const ok=document.execCommand("copy");x.remove();showToast(ok?"微信号已复制："+value:"微信号："+value+"，可长按文字复制")}}$("copyWechat").addEventListener("click",copyWechat);
 $("allWorks").addEventListener("click",()=>openSection("all"));$("closeDrawer").addEventListener("click",close);$("shade").addEventListener("click",close);document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});document.querySelectorAll("[data-open]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openSection(a.dataset.open)}));
-fetch("../portfolio-v2/content.json?refresh="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(async j=>{originalData=j;try{const z=await fetch("./i18n.json",{cache:"no-store"});translations=await z.json()}catch(e){console.warn("i18n unavailable",e);translations={}}applyLanguage(new URLSearchParams(location.search).get("lang")||"zh");let hash=location.hash.slice(1);if(["about","career","business","creative"].includes(hash))openSection(hash)}).catch(err=>{$("speech").textContent="作品内容加载失败，请稍后刷新。";console.error(err)});
+fetch("../portfolio-v2/content.json?refresh="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(async j=>{originalData=j;try{const z=await fetch("./i18n.json",{cache:"no-store"});translations=await z.json()}catch(e){console.warn("i18n unavailable",e);translations={}}applyLanguage(new URLSearchParams(initialParams).get("lang")||"zh");let hash=initialHash;if(["about","career","business","creative"].includes(hash))openSection(hash);else if(["top","works","contact"].includes(hash))requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:"start"}))}).catch(err=>{$("speech").textContent="作品内容加载失败，请稍后刷新。";console.error(err)});
 })();
 </script>
 </body></html>
