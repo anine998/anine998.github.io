@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f1e8">
+<meta name="description" content="NINE · Street Photography / 摄影街拍作品集">
+<title>STREET / FRAMES — NINE Photography</title>
+<link rel="canonical" href="https://anine998.github.io/portfolio/photography.html">
+<style>
+:root{--bg:#f5f1e8;--ink:#26332b;--muted:#667064;--line:#d5d5c9;--paper:#fffdf8;--accent:#b67e39}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,"PingFang SC","Hiragino Kaku Gothic ProN",sans-serif}
+a{color:inherit;text-decoration:none}
+button{color:inherit;font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.shell{max-width:1380px;margin:auto;padding-inline:clamp(20px,4vw,60px)}
+.topbar{border-bottom:1px solid var(--line);background:#f5f1e8f2;backdrop-filter:blur(14px);position:sticky;top:0;z-index:9}
+.topbar .shell{height:76px;display:flex;align-items:center;gap:18px}
+.brand{font:bold 28px/1 ui-monospace,monospace;letter-spacing:-.09em;margin-right:auto}.brand b{color:#bb8a45}
+.back{font-size:12px;font-weight:700;border-bottom:1px solid #87978a;padding-bottom:4px}
+.languages{display:flex;gap:3px;margin-left:17px;border:1px solid var(--line);padding:4px}
+.languages button{border:0;background:transparent;padding:4px 7px;font:bold 10px ui-monospace,monospace}
+.languages button[aria-pressed=true]{background:#2d3c31;color:#fff}
+.hero{border-bottom:1px solid var(--line);padding-block:65px 54px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font:700 10px ui-monospace,monospace;letter-spacing:.14em;color:#a57a43}
+.hero h1{font:900 clamp(52px,10vw,146px)/.94 system-ui,sans-serif;letter-spacing:-.095em;margin:30px 0 23px}
+.hero h1 span{font-weight:400;font-style:italic;font-family:Georgia,"Times New Roman",serif;letter-spacing:-.07em;color:#8a9886}
+.hero-bottom{display:flex;justify-content:space-between;align-items:end;gap:25px;flex-wrap:wrap}
+.hero-bottom p{margin:0;max-width:540px;font-size:14px;color:var(--muted);line-height:1.9}
+.hero-bottom aside{font:700 10px ui-monospace,monospace;color:#718075;letter-spacing:.12em}
+.info{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:19px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.info h2{font:900 15px ui-monospace,monospace;margin:0;letter-spacing:.06em}
+.info span{font-size:11px;color:#778075}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:21px;margin-top:24px}
+.frame{min-width:0}
+.frame-visual{position:relative;aspect-ratio:4/5;background:#e7e6dc;overflow:hidden;border:1px solid #d9d8cc}
+.frame-visual:after{content:"";pointer-events:none;position:absolute;inset:12px;border:1px solid #ffffff88}
+.frame-visual img{width:100%;height:100%;object-fit:cover;display:none;cursor:zoom-in;transition:transform .3s}
+.frame-visual.loaded img{display:block}
+.frame-visual.loaded:hover img{transform:scale(1.02)}
+.frame-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:20px;background:radial-gradient(circle at 65% 30%,#f9f7ee,#e4e6df 64%,#d8dfd7)}
+.frame:nth-child(3n+2) .frame-placeholder{background:radial-gradient(circle at 25% 15%,#e9e9e1,#d2d8d3 70%)}
+.frame:nth-child(3n) .frame-placeholder{background:radial-gradient(circle at 70% 60%,#f5ede0,#dddcd2 66%)}
+.frame-placeholder b{font:800 12px ui-monospace,monospace;color:#9ea69c}
+.frame-placeholder span{font:800 clamp(36px,6vw,88px)/1 ui-monospace,monospace;letter-spacing:-.1em;color:#c7cec3;align-self:center}
+.frame-placeholder small{font-size:11px;color:#7c887b}
+.frame-visual.loaded .frame-placeholder{display:none}
+.frame-meta{display:flex;justify-content:space-between;gap:10px;padding:10px 1px 0}
+.frame-meta b{font-size:12px;font-weight:750}.frame-meta small{font:700 10px ui-monospace,monospace;color:#8c968a}
+.gallery-note{margin:42px 0 80px;padding:22px 26px;background:var(--paper);border-left:3px solid #bba27c}
+.gallery-note h3{margin:0 0 7px;font-size:14px}
+.gallery-note p{margin:0;color:#647163;font-size:12px;line-height:1.8}
+.footer{border-top:1px solid var(--line);padding:25px 0 40px;display:flex;gap:20px;justify-content:space-between;color:#82867c;font:700 11px ui-monospace,monospace}
+.viewer{position:fixed;inset:0;background:#151b16ec;z-index:99;display:none;align-items:center;justify-content:center;padding:45px;cursor:zoom-out}
+.viewer.open{display:flex}
+.viewer img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 15px 80px #0008}
+.viewer button{position:absolute;top:18px;right:20px;color:white;background:none;border:1px solid #ffffff65;padding:5px 12px;font-size:20px;cursor:pointer}
+@media(max-width:840px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.hero{padding-block:45px}.hero h1{font-size:clamp(50px,11vw,90px)}}
+@media(max-width:490px){.topbar .shell{height:62px;gap:8px}.brand{font-size:23px}.back{font-size:10px}.languages{margin-left:4px}.languages button{padding:4px}.gallery{gap:10px}.frame-placeholder{padding:12px}.frame-meta b{font-size:11px}.frame-meta small{font-size:9px}.hero h1{font-size:clamp(42px,11vw,61px)}.hero-bottom p{font-size:12px}.info{flex-direction:column;align-items:start;gap:4px}.viewer{padding:15px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="topbar"><nav class="shell" aria-label="Gallery navigation"><a class="brand" href="./">NINE<b>.</b></a><a class="back" href="./" data-i18n="back">← 返回作品集</a><div class="languages" aria-label="Language"><button type="button" data-lang="zh" aria-pressed="true">中</button><button type="button" data-lang="ja" aria-pressed="false">日</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></nav></header>
+<main>
+<section class="hero shell">
+ <div class="hero-top"><span>PERSONAL PROJECT / VISUAL JOURNAL</span><span>© NINE · 2026</span></div>
+ <h1>STREET<span> / </span>FRAMES.</h1>
+ <div class="hero-bottom"><p data-i18n="intro">喜欢城市里那些没有剧本的瞬间。光线、街角、行人和偶然的构图，都是值得被记录的故事。</p><aside>THE WORLD THROUGH MY LENS — 01 / ∞</aside></div>
+</section>
+<section class="shell" aria-labelledby="galleryTitle">
+ <div class="info"><h2 id="galleryTitle" data-i18n="heading">SELECTED FRAMES / 摄影街拍</h2><span data-i18n="status">个人摄影作品展示空间 · 待上传作品</span></div>
+ <div class="gallery">
+  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 001</b><span>01</span><small>STREET / LIGHT</small></div><img data-photo="photography/01.jpg" alt="Photography frame 01"></div><div class="frame-meta"><b>01 / LIGHT</b><small>STREET</small></div></article>
+  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 002</b><span>02</span><small>PEOPLE / MOTION</small></div><img data-photo="photography/02.jpg" alt="Photography frame 02"></div><div class="frame-meta"><b>02 / MOTION</b><small>STREET</small></div></article>
+  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 003</b><span>03</span><small>CITY / RHYTHM</small></div><img data-photo="photography/03.jpg" alt="Photography frame 03"></div><div class="frame-meta"><b>03 / CITY</b><small>STREET</small></div></article>
+  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 004</b><span>04</span><small>SHADOW / TIME</small></div><img data-photo="photography/04.jpg" alt="Photography frame 04"></div><div class="frame-meta"><b>04 / SHADOW</b><small>STREET</small></div></article>
+  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 005</b><span>05</span><small>DETAIL / FORM</small></div><img data-photo="photography/05.jpg" alt="Photography frame 05"></div><div class="frame-meta"><b>05 / DETAIL</b><small>STREET</small></div></article>
+  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 006</b><span>06</span><small>EVERYDAY / LIFE</small></div><img data-photo="photography/06.jpg" alt="Photography frame 06"></div><div class="frame-meta"><b>06 / EVERYDAY</b><small>STREET</small></div></article>
+ </div>
+ <div class="gallery-note"><h3 data-i18n="noteHeading">这是摄影作品的独立展示入口。</h3><p data-i18n="note">目前还没有上传本人拍摄的原片，因此先保留六个统一比例的作品位置，不会将网络素材当作我的摄影作品展示。将照片依次放入 portfolio/photography/01.jpg 至 06.jpg 后，会自动显示，并支持点击放大。</p></div>
+</section>
+</main>
+<footer class="footer shell"><span>NINE / JIANG CHENYING</span><a href="./" data-i18n="backFoot">← BACK TO PORTFOLIO</a></footer>
+<div class="viewer" role="dialog" aria-modal="true" aria-label="Photography image viewer" id="viewer"><button type="button" id="viewerClose" aria-label="Close">×</button><img alt="" id="viewerImg"></div>
+<script>
+(()=>{
+const T={
+zh:{back:"← 返回作品集",intro:"喜欢城市里那些没有剧本的瞬间。光线、街角、行人和偶然的构图，都是值得被记录的故事。",heading:"SELECTED FRAMES / 摄影街拍",status:"个人摄影作品展示空间 · 待上传作品",noteHeading:"这是摄影作品的独立展示入口。",note:"目前还没有上传本人拍摄的原片，因此先保留六个统一比例的作品位置，不会将网络素材当作我的摄影作品展示。将照片依次放入 portfolio/photography/01.jpg 至 06.jpg 后，会自动显示，并支持点击放大。",backFoot:"← 返回作品集"},
+ja:{back:"← ポートフォリオに戻る",intro:"街角の光、人の動き、ふとした瞬間。何気ない日常に潜むストーリーを、写真で切り取っていきたいと思っています。",heading:"SELECTED FRAMES / ストリートフォト",status:"個人写真のギャラリー · 作品は準備中",noteHeading:"写真作品のための独立ギャラリーです。",note:"本人が撮影した写真はまだアップロードされていません。現在は6枚分の作品スペースを用意しています。Web上の参考写真を自分の作品として掲載することはありません。portfolio/photography/01.jpg ～ 06.jpg に画像を追加すると、自動で表示・拡大できます。",backFoot:"← ポートフォリオへ"},
+en:{back:"← Back to portfolio",intro:"I love the unscripted moments of city life—the light, the movement, the passersby, and the unexpected compositions that tell a story.",heading:"SELECTED FRAMES / STREET PHOTOGRAPHY",status:"Personal photography gallery · Awaiting original photos",noteHeading:"A dedicated space for my photography.",note:"My original photographs have not been uploaded yet. These six frames are intentionally placeholders—not someone else's photos presented as my work. Upload portfolio/photography/01.jpg through 06.jpg to display the images automatically, with click-to-zoom.",backFoot:"← Back to portfolio"}};
+let locale=new URLSearchParams(location.search).get("lang")||"zh";if(!T[locale])locale="zh";
+function applyLang(lang){locale=lang;document.documentElement.lang=lang==="zh"?"zh-CN":lang;document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=T[lang][el.dataset.i18n]||el.textContent});document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)))}
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+applyLang(locale);
+const modal=document.querySelector("#viewer"),img=document.querySelector("#viewerImg");
+function close(){modal.classList.remove("open");img.removeAttribute("src");document.body.style.overflow=""}
+document.querySelector("#viewerClose").addEventListener("click",close);modal.addEventListener("click",e=>{if(e.target===modal)close()});document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+document.querySelectorAll("[data-photo]").forEach(el=>{
+  const path=el.dataset.photo;el.onload=()=>{el.parentElement.classList.add("loaded");el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Enlarge "+el.alt)};
+  el.onerror=()=>{el.removeAttribute("src")};
+  el.addEventListener("click",()=>{if(!el.parentElement.classList.contains("loaded"))return;img.src=el.src;img.alt=el.alt;modal.classList.add("open");document.body.style.overflow="hidden";document.querySelector("#viewerClose").focus()});
+  el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();el.click()}});
+  el.src=path;
+});
+})();
+</script>
+</body>
+</html>
