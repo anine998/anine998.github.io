@@ -74,6 +74,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(max-width:1000px){.gallery{column-count:2;column-gap:17px}.frame{margin-bottom:18px}}
 @media(max-width:600px){.gallery{column-count:1;max-width:520px;margin:20px auto 0}.frame{margin-bottom:24px}.hero{padding-block:42px 39px}.gallery-note{margin-top:23px;margin-bottom:52px}}
 
+.gallery-loading{padding:40px 0;color:#768174;font-size:13px}
+.frame-visual.image-error{min-height:150px;display:grid;place-items:center;color:#627064}
+.frame-visual.image-error:after{content:"暂无法加载图片";font-size:12px;position:absolute;inset:auto;display:block}
+.manage-link{font-size:11px;color:#6d7d69;text-decoration:underline;text-underline-offset:4px}
 </style>
 </head>
 <body>
@@ -85,37 +89,66 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
  <div class="hero-bottom"><p data-i18n="intro">喜欢城市里那些没有剧本的瞬间。光线、街角、行人和偶然的构图，都是值得被记录的故事。</p><aside>THE WORLD THROUGH MY LENS — 01 / ∞</aside></div>
 </section>
 <section class="shell" aria-labelledby="galleryTitle">
- <div class="info"><h2 id="galleryTitle" data-i18n="heading">SELECTED FRAMES / 摄影街拍</h2><span data-i18n="status">个人摄影作品展示空间 · 待上传作品</span></div>
- <div class="gallery">
-  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/01.jpg" width="819" height="1024" loading="lazy" decoding="async" alt="街道上的摩托三轮车与满载的报刊"></div><div class="frame-meta"><b>01 / MOBILE CITY</b><small>STREET / MOVEMENT</small></div></article>
-  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/02.jpg" width="1152" height="1536" loading="lazy" decoding="async" alt="白色墙壁前的两个人、自行车与红色路锥"></div><div class="frame-meta"><b>02 / A MOMENT APART</b><small>STREET / QUIET</small></div></article>
-  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/03.jpg" width="710" height="1536" loading="lazy" decoding="async" alt="月亮、骑行者与夜晚街头的四格影像"></div><div class="frame-meta"><b>03 / NIGHT NOTES</b><small>AFTER DARK / DIARY</small></div></article>
-  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/04.jpg" width="710" height="1536" loading="lazy" decoding="async" alt="夜晚城市里不同人物的四格影像"></div><div class="frame-meta"><b>04 / THE CITY AT NIGHT</b><small>PEOPLE / NIGHT</small></div></article>
-  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/05.jpg" width="1152" height="1536" loading="lazy" decoding="async" alt="彩虹伞下的街头摊贩与红白相间的墙"></div><div class="frame-meta"><b>05 / UNDER THE COLOR</b><small>CITY / CONTRAST</small></div></article>
-  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/06.jpg" width="1536" height="1085" loading="lazy" decoding="async" alt="雕塑前经过的马车与街头人群"></div><div class="frame-meta"><b>06 / PASSING SCENE</b><small>TRAVEL / OBSERVATION</small></div></article>
- </div>
- <div class="gallery-note"><h3 data-i18n="noteHeading">这是摄影作品的独立展示入口。</h3><p data-i18n="note">目前还没有上传本人拍摄的原片，因此先保留六个统一比例的作品位置，不会将网络素材当作我的摄影作品展示。将照片依次放入 portfolio/photography/01.jpg 至 06.jpg 后，会自动显示，并支持点击放大。</p></div>
+ <div class="info"><h2 id="galleryTitle" data-i18n="heading">SELECTED FRAMES / 摄影街拍</h2><span data-i18n="status">12 组原创摄影作品 · 点击图片放大</span></div>
+ <div class="gallery" id="photoGrid" aria-live="polite"><p class="gallery-loading">正在载入摄影作品…</p></div>
+ <div class="gallery-note"><h3 data-i18n="noteHeading">关于这些照片</h3><p data-i18n="note">街头的光影、人物与偶然相遇。照片保留原始比例与纪实质感，点击可以查看大图。</p></div>
 </section>
 </main>
-<footer class="footer shell"><span>NINE / JIANG CHENYING</span><a href="./" data-i18n="backFoot">← BACK TO PORTFOLIO</a></footer>
+<footer class="footer shell"><span>NINE / JIANG CHENYING</span><span><a class="manage-link" href="./photography-admin.html" data-i18n="manage" rel="nofollow">管理摄影集</a>　 <a href="./" data-i18n="backFoot">← BACK TO PORTFOLIO</a></span></footer>
 <div class="viewer" role="dialog" aria-modal="true" aria-label="Photography image viewer" id="viewer"><button type="button" id="viewerClose" aria-label="Close">×</button><img alt="" id="viewerImg"></div>
 <script>
 (()=>{
-const T={"zh":{"back":"← 返回作品集","intro":"没有剧本的街头瞬间。人、光、建筑与偶然的相遇，组成我持续观察和记录的城市。","heading":"SELECTED FRAMES / 摄影街拍","status":"6 组真实摄影作品 · 点击图片放大","noteHeading":"关于这些照片","note":"六组照片保留原有的色彩、颗粒与构图比例，其中两组为多画面拼贴。这里记录的是未经编排的街头瞬间，而不是经过 AI 重绘的画面。","backFoot":"← 返回作品集"},"ja":{"back":"← ポートフォリオに戻る","intro":"街角の何気ない瞬間。人、光、建物、偶然の出会いを通して、日常の街を見つめ、記録しています。","heading":"SELECTED FRAMES / ストリートフォト","status":"オリジナル写真6作品 · クリックして拡大","noteHeading":"写真について","note":"写真は元の色合いと質感、縦横比を尊重して掲載しています。うち2作品は複数の写真を組み合わせた構成です。AIによる再描画ではなく、日常の街角を切り取った記録です。","backFoot":"← ポートフォリオへ"},"en":{"back":"← Back to portfolio","intro":"Unscripted moments of the street. People, light, architecture and chance encounters make up the cities I keep observing and documenting.","heading":"SELECTED FRAMES / STREET PHOTOGRAPHY","status":"6 original photo works · Click to enlarge","noteHeading":"About the photographs","note":"These photographs retain their original colors, textures and proportions. Two works are multi-frame compositions. They are documentary moments, not AI-generated recreations.","backFoot":"← Back to portfolio"}};
-let locale=new URLSearchParams(location.search).get("lang")||"zh";if(!T[locale])locale="zh";
-function applyLang(lang){locale=lang;document.documentElement.lang=lang==="zh"?"zh-CN":lang;document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=T[lang][el.dataset.i18n]||el.textContent});document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)))}
-document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
-applyLang(locale);
-const modal=document.querySelector("#viewer"),img=document.querySelector("#viewerImg");
-function close(){modal.classList.remove("open");img.removeAttribute("src");document.body.style.overflow=""}
-document.querySelector("#viewerClose").addEventListener("click",close);modal.addEventListener("click",e=>{if(e.target===modal)close()});document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
-document.querySelectorAll("[data-photo]").forEach(el=>{
-  const path=el.dataset.photo;el.onload=()=>{el.parentElement.classList.add("loaded");el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Enlarge "+el.alt)};
-  el.onerror=()=>{el.removeAttribute("src")};
-  el.addEventListener("click",()=>{if(!el.parentElement.classList.contains("loaded"))return;img.src=el.src;img.alt=el.alt;modal.classList.add("open");document.body.style.overflow="hidden";document.querySelector("#viewerClose").focus()});
-  el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();el.click()}});
-  el.src=path;
-});
+"use strict";
+const T={
+ zh:{back:"← 返回作品集",intro:"没有剧本的街头瞬间。人、光、建筑与偶然的相遇，组成我持续观察和记录的城市。",heading:"SELECTED FRAMES / 摄影街拍",status:"{count} 组原创摄影作品 · 点击图片放大",noteHeading:"关于这些照片",note:"街头的光影、人物与偶然相遇。照片保留原始比例与纪实质感，也包括多画面拼贴；点击可查看原图。",backFoot:"← 返回作品集",manage:"管理摄影集",load:"摄影作品加载失败，请刷新重试。"},
+ ja:{back:"← ポートフォリオに戻る",intro:"街角の何気ない瞬間。人、光、建物、偶然の出会いを通して、日常の街を見つめ、記録しています。",heading:"SELECTED FRAMES / ストリートフォト",status:"オリジナル写真 {count} 作品 · クリックして拡大",noteHeading:"写真について",note:"街の光や人々、偶然の瞬間を記録しています。元の縦横比と質感を保ち、複数の写真を組み合わせた作品も掲載しています。",backFoot:"← ポートフォリオへ",manage:"写真を管理",load:"写真を読み込めませんでした。再読み込みしてください。"},
+ en:{back:"← Back to portfolio",intro:"Unscripted moments of the street. People, light, architecture and chance encounters make up the cities I keep observing and documenting.",heading:"SELECTED FRAMES / STREET PHOTOGRAPHY",status:"{count} original photo works · Click to enlarge",noteHeading:"About the photographs",note:"Documentary moments of light, people and chance. Original proportions and textures are preserved, including several multi-frame photo compositions.",backFoot:"← Back to portfolio",manage:"Manage gallery",load:"Couldn't load the gallery. Please refresh."}
+};
+let locale=new URLSearchParams(location.search).get("lang")||"zh";
+if(!T[locale])locale="zh";
+let items=[];
+const $=(id)=>document.getElementById(id);
+function applyLang(lang){
+ locale=lang;document.documentElement.lang=lang==="zh"?"zh-CN":lang;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const value=T[lang][el.dataset.i18n];if(value)el.textContent=value.replace("{count}",String(items.length));});
+ document.querySelectorAll("[data-lang]").forEach(el=>el.setAttribute("aria-pressed",String(el.dataset.lang===lang)));
+}
+document.querySelectorAll("[data-lang]").forEach(el=>el.addEventListener("click",()=>applyLang(el.dataset.lang)));
+const viewer=$("viewer"),viewerImage=$("viewerImg");
+function close(){viewer.classList.remove("open");viewerImage.removeAttribute("src");document.body.style.overflow=""}
+$("viewerClose").addEventListener("click",close);
+viewer.addEventListener("click",e=>{if(e.target===viewer)close()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+function validPhoto(path){return typeof path==="string"&&/^\.\/assets\/photography\/[a-zA-Z0-9_-]+\.(?:jpe?g|png|webp)$/.test(path)}
+function render(){
+ const grid=$("photoGrid"),frag=document.createDocumentFragment();grid.replaceChildren();
+ items.forEach((p,i)=>{
+  if(!p||!validPhoto(p.src))return;
+  const article=document.createElement("article");article.className="frame";
+  const visual=document.createElement("div");visual.className="frame-visual";
+  const picture=document.createElement("img");picture.loading="lazy";picture.decoding="async";picture.alt=String(p.alt||p.title||"Original photography");
+  picture.addEventListener("load",()=>visual.classList.add("loaded"));
+  picture.addEventListener("error",()=>{visual.classList.add("image-error");picture.alt="Photo temporarily unavailable"});
+  picture.addEventListener("click",()=>{if(!picture.naturalWidth)return;viewerImage.src=picture.src;viewerImage.alt=picture.alt;viewer.classList.add("open");document.body.style.overflow="hidden";$("viewerClose").focus()});
+  picture.tabIndex=0;picture.setAttribute("role","button");picture.setAttribute("aria-label","Enlarge "+picture.alt);
+  picture.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();picture.click()}});
+  picture.src=p.src;
+  visual.append(picture);
+  const meta=document.createElement("div");meta.className="frame-meta";
+  const title=document.createElement("b");title.textContent=String(i+1).padStart(2,"0")+" / "+String(p.title||"UNTITLED");
+  const cat=document.createElement("small");cat.textContent=String(p.category||"STREET");
+  meta.append(title,cat);article.append(visual,meta);frag.append(article);
+ });
+ grid.append(frag);applyLang(locale);
+}
+async function load(){
+ try{
+  const r=await fetch("./photography-data.json",{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);
+  const data=await r.json();if(!Array.isArray(data.items))throw Error("Invalid gallery data");
+  items=data.items;render();
+ }catch(e){console.error("Gallery load failed",e);$("photoGrid").textContent=T[locale].load}
+}
+applyLang(locale);load();
 })();
 </script>
 </body>

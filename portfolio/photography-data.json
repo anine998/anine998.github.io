@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "updated": "2026-10-31",
+  "items": [
+    {
+      "id": "frame-01",
+      "src": "./assets/photography/01.jpg",
+      "title": "MOBILE CITY",
+      "category": "STREET / MOVEMENT",
+      "alt": "街头满载报刊的三轮摩托车"
+    },
+    {
+      "id": "frame-02",
+      "src": "./assets/photography/02.jpg",
+      "title": "A MOMENT APART",
+      "category": "STREET / QUIET",
+      "alt": "墙前休息的两个人、自行车与红色路锥"
+    },
+    {
+      "id": "frame-03",
+      "src": "./assets/photography/03.jpg",
+      "title": "NIGHT NOTES",
+      "category": "AFTER DARK / DIARY",
+      "alt": "月亮、骑车人与夜晚街景的四格影像"
+    },
+    {
+      "id": "frame-04",
+      "src": "./assets/photography/04.jpg",
+      "title": "THE CITY AT NIGHT",
+      "category": "PEOPLE / NIGHT",
+      "alt": "夜晚城市不同人物的四格影像"
+    },
+    {
+      "id": "frame-05",
+      "src": "./assets/photography/05.jpg",
+      "title": "UNDER THE COLOR",
+      "category": "CITY / CONTRAST",
+      "alt": "彩虹伞下的摊贩与红白相间的墙"
+    },
+    {
+      "id": "frame-06",
+      "src": "./assets/photography/06.jpg",
+      "title": "PASSING SCENE",
+      "category": "TRAVEL / OBSERVATION",
+      "alt": "雕塑前经过的马车与街头人群"
+    },
+    {
+      "id": "frame-07",
+      "src": "./assets/photography/07.jpg",
+      "title": "NIGHT MOVEMENTS",
+      "category": "AFTER DARK / MOMENTS",
+      "alt": "夜间公园、行驶的车辆与散步的行人四格照片"
+    },
+    {
+      "id": "frame-08",
+      "src": "./assets/photography/08.jpg",
+      "title": "THE LATE SHIFT",
+      "category": "STREET / PEOPLE",
+      "alt": "夜间货车、骑行者与街头活动的四格照片"
+    },
+    {
+      "id": "frame-09",
+      "src": "./assets/photography/09.jpg",
+      "title": "BANGKOK CONTACT SHEET",
+      "category": "TRAVEL / STREET",
+      "alt": "曼谷街头市场、广告与交通的长幅拼贴影像"
+    },
+    {
+      "id": "frame-10",
+      "src": "./assets/photography/10.jpg",
+      "title": "NIGHT MARKET DIARY",
+      "category": "TRAVEL / AFTER DARK",
+      "alt": "夜市招牌、人群、摊贩与街头光影的长幅拼贴"
+    },
+    {
+      "id": "frame-11",
+      "src": "./assets/photography/11.jpg",
+      "title": "DISCARDED FACE",
+      "category": "STREET / OBJECTS",
+      "alt": "塑料袋、路锥与网袋之间的人偶模特头部"
+    },
+    {
+      "id": "frame-12",
+      "src": "./assets/photography/12.jpg",
+      "title": "WINDOW OF SMILES",
+      "category": "CITY / DETAILS",
+      "alt": "窗后陈列着整齐排列的微笑纸箱"
+    }
+  ]
+}
