@@ -83,9 +83,51 @@ header{position:sticky;top:0;background:#f5f1e8ed;backdrop-filter:blur(14px);z-i
 @keyframes board-orbit{0%{transform:translateX(-50%) rotate(-13deg)}25%{transform:translateX(-50%) translate(75px,-58px) rotate(77deg)}50%{transform:translateX(-50%) translate(0,-144px) rotate(167deg)}75%{transform:translateX(-50%) translate(-75px,-58px) rotate(257deg)}100%{transform:translateX(-50%) rotate(347deg)}}
 @media(max-width:720px){.top{flex-wrap:wrap;height:auto;min-height:65px;padding-top:8px;padding-bottom:8px;gap:8px}.strap{display:none}.nav{margin-left:auto;gap:12px}.lang-switch{margin-left:auto}.lang-switch button{font-size:10px;padding:5px}}
 @media(prefers-reduced-motion:reduce){.character.board-spin .skate{animation:none}}
+
+/* OFF THE CLOCK / personal life zine – scoped to avoid changes to portfolio cards */
+#life{scroll-margin-top:88px}
+.life-section{padding:30px 0 65px;isolation:isolate}
+.life-panel{position:relative;overflow:hidden;background:#212824;color:#f9f6eb;padding:clamp(20px,4vw,52px);border-radius:8px;box-shadow:9px 9px 0 #cbd0c0}
+.life-panel:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:repeating-linear-gradient(90deg,#d4ff62 0 55px,#fa78a1 55px 95px,#eab967 95px 132px);pointer-events:none}
+.life-overline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:5px 0 18px;font:750 10px/1.6 ui-monospace,monospace;letter-spacing:.16em;color:#b4c8ad;flex-wrap:wrap}
+.life-overline strong{color:#d6ff69;font:inherit}
+.life-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
+.life-head .tiny{font:750 11px ui-monospace,monospace;color:#ff96b5;letter-spacing:.08em;margin:0 0 9px}
+.life-head h2{font:1000 clamp(38px,7.3vw,100px)/.93 ui-sans-serif,system-ui,sans-serif;letter-spacing:-.09em;margin:0;text-transform:uppercase}
+.life-head h2 em{font-style:normal;color:#d6ff69}
+.life-head .life-intro{font-size:clamp(12px,1.25vw,14px);line-height:1.85;color:#d6ded1;max-width:330px;margin:0 0 4px}
+.life-ticker{overflow:hidden;white-space:nowrap;border-block:1px solid #58645a;padding:8px 0;margin:0 0 21px;color:#d6ff69;font:800 11px/1.4 ui-monospace,monospace;letter-spacing:.11em}
+.life-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:13px}
+.life-card{position:relative;min-width:0;background:#f4f1e7;color:#232922;border:1px solid #535e4b;border-radius:3px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.life-card:hover{transform:translateY(-4px) rotate(-.4deg);box-shadow:5px 6px 0 #a4bb83}
+.life-card--dance{grid-column:span 7}.life-card--skate{grid-column:span 5}.life-card--kendama{grid-column:span 3}.life-card--hike{grid-column:span 4}.life-card--iceland{grid-column:span 5}
+.life-visual{height:215px;position:relative;overflow:hidden;background:#343f39}
+.life-card--dance .life-visual,.life-card--skate .life-visual{height:275px}
+.life-visual img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .4s;filter:saturate(.9) contrast(1.07)}
+.life-card:hover .life-visual img{transform:scale(1.06);filter:saturate(1.08) contrast(1.02)}
+.life-visual:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0004);pointer-events:none}
+.life-sticker{position:absolute;z-index:2;top:13px;left:13px;padding:5px 9px;transform:rotate(-4deg);background:#d6ff69;color:#222b22;border:1.5px solid #242e24;box-shadow:2px 3px 0 #27342c;font:900 11px ui-monospace,monospace;letter-spacing:.03em}
+.life-card--skate .life-sticker{background:#ff97b7;transform:rotate(4deg)}
+.life-card--kendama .life-sticker{background:#ffcd77}
+.life-card--hike .life-sticker{background:#cef4cf}
+.life-card--iceland .life-sticker{background:#b9ddfa}
+.life-meta{padding:15px 16px 18px;min-height:117px}
+.life-meta h3{display:flex;align-items:center;justify-content:space-between;gap:12px;font:850 clamp(19px,2vw,27px)/1.15 ui-sans-serif,system-ui,sans-serif;margin:0 0 9px;letter-spacing:-.04em}
+.life-meta h3 span{font:700 10px ui-monospace,monospace;letter-spacing:0;color:#818c7e}
+.life-meta p{font-size:12px;color:#4b5b4d;line-height:1.75;margin:0}
+.life-kendama-art{height:100%;display:grid;place-items:center;background:radial-gradient(circle at 76% 25%,#e4f3c0 0 12%,transparent 12.5%),radial-gradient(circle at 24% 76%,#f0bcbb 0 9%,transparent 9.5%),#d2dcbd;position:relative}
+.life-kendama-art svg{width:min(78%,240px);height:90%;filter:drop-shadow(9px 11px 0 #81937566);transform:rotate(-13deg);transition:transform .4s}
+.life-card--kendama:hover .life-kendama-art svg{transform:rotate(-2deg) translateY(-4px)}
+.life-tail{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-top:24px;color:#d6ff69;font:800 14px/1.5 ui-monospace,monospace}
+.life-tail span:last-child{font-size:10px;font-weight:500;color:#aebbae;letter-spacing:.02em}
+@media(max-width:900px){.life-card--dance{grid-column:span 7}.life-card--skate{grid-column:span 5}.life-card--kendama,.life-card--hike,.life-card--iceland{grid-column:span 4}.life-visual{height:185px}.life-card--dance .life-visual,.life-card--skate .life-visual{height:235px}.life-head h2{font-size:clamp(37px,7vw,72px)}}
+@media(max-width:700px){.life-head{align-items:start;flex-direction:column;gap:13px}.life-head .life-intro{max-width:560px}.life-panel{padding:23px 15px 25px;box-shadow:5px 5px 0 #cbd0c0}.life-section{padding:25px 0 52px}.life-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.life-card--dance,.life-card--iceland{grid-column:span 2}.life-card--skate,.life-card--hike{grid-column:span 1}.life-card--kendama{grid-column:span 2}.life-visual,.life-card--dance .life-visual,.life-card--skate .life-visual{height:200px}.life-card--dance .life-visual,.life-card--iceland .life-visual{height:240px}.life-card--kendama .life-visual{height:178px}.life-meta{min-height:115px;padding:13px}.life-meta h3{font-size:20px;align-items:start}.life-meta h3 span{font-size:9px}.life-meta p{font-size:11px}.life-tail{font-size:12px}.life-overline{font-size:9px}}
+@media(max-width:420px){.life-head h2{font-size:clamp(37px,12vw,52px)}.life-card--skate .life-visual,.life-card--hike .life-visual{height:165px}.life-sticker{font-size:9px;padding:4px 6px}.life-meta h3{font-size:17px}.life-meta h3 span{font-size:8px}.life-meta p{font-size:10.5px}}
+@media(prefers-reduced-motion:reduce){.life-card,.life-visual img,.life-kendama-art svg{transition:none!important}}
+
 </style>
 </head><body>
-<header><nav class="shell top"><a class="brand" href="#top">NINE<span class="dot">.</span></a><span class="strap">CREATIVE STRATEGY / AI / BUSINESS</span><div class="nav"><a href="#top">首页</a><a href="#works">项目展示</a><a href="#contact">联络方式</a></div><div class="lang-switch" role="group" aria-label="Language"><button data-lang="zh" aria-pressed="true">中文</button><button data-lang="ja" aria-pressed="false">日本語</button><button data-lang="en" aria-pressed="false">EN</button></div></nav></header>
+<header><nav class="shell top"><a class="brand" href="#top">NINE<span class="dot">.</span></a><span class="strap">CREATIVE STRATEGY / AI / BUSINESS</span><div class="nav"><a href="#top">首页</a><a href="#works">项目展示</a><a href="#life">生活切片</a><a href="#contact">联络方式</a></div><div class="lang-switch" role="group" aria-label="Language"><button data-lang="zh" aria-pressed="true">中文</button><button data-lang="ja" aria-pressed="false">日本語</button><button data-lang="en" aria-pressed="false">EN</button></div></nav></header>
 <main id="top"><section class="hero"><div class="shell"><div class="overline eyebrow"><span>◈ PLAYER OF EARTH ONLINE</span><span>INTERACTIVE PORTFOLIO / CN · 2026</span></div>
 <div class="stage">
 <div class="side left" id="leftChoices"></div>
@@ -93,6 +135,44 @@ header{position:sticky;top:0;background:#f5f1e8ed;backdrop-filter:blur(14px);z-i
 <div class="side right" id="rightChoices"></div>
 </div><div class="intro"><div class="eyebrow" id="role">CREATIVE STRATEGY · AI · BUSINESS</div><h1 id="headline"></h1><p id="summary"></p><div class="status" id="status"></div></div></div></section>
 <section class="shell featured" id="works"><div class="section-title"><h2>SELECTED WORKS<span style="color:#c89643">.</span></h2><span>精选作品与实际项目</span><button id="allWorks">查看全部 ↗</button></div><div class="cards" id="featuredCards"></div></section>
+
+<section class="life-section shell" id="life" aria-labelledby="lifeTitle">
+ <div class="life-panel">
+  <div class="life-overline"><span><strong>05 / SIDE QUEST UNLOCKED</strong> — NINE'S LIFE</span><span>✳ NOT JUST A RÉSUMÉ ✳</span></div>
+  <div class="life-head">
+   <div><p class="tiny" data-life-key="subhead">我的工作之外 / PLAY MODE ON</p><h2 id="lifeTitle">OFF THE <em>CLOCK.</em></h2></div>
+   <p class="life-intro" data-life-key="intro">认真工作，也认真玩。用音乐、街头、山野和真实的行动，去认识更多面的世界。</p>
+  </div>
+  <div class="life-ticker" aria-hidden="true">DANCE ✳ SKATE ✳ KENDAMA ✳ HIKE ✳ ICELAND ✳ KEEP MOVING ✳ KEEP CURIOUS ✳ DANCE ✳ SKATE ✳ KENDAMA ✳</div>
+  <div class="life-grid">
+   <article class="life-card life-card--dance">
+    <div class="life-visual"><img src="https://images.unsplash.com/photo-1528321917418-af00f8823ded?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" loading="lazy" decoding="async" alt="舞蹈与身体动作的主题配图" data-life-alt="danceAlt"><span class="life-sticker">01 / MOVE!</span></div>
+    <div class="life-meta"><h3><span data-life-key="danceTitle">热爱跳舞</span><span>HIP-HOP / DANCE</span></h3><p data-life-key="danceText">音乐响起来，就想跟着节奏动起来。跳舞是我的能量补给，也是另一种表达方式。</p></div>
+   </article>
+   <article class="life-card life-card--skate">
+    <div class="life-visual"><img src="https://images.unsplash.com/photo-1573691138222-741a6db847d9?auto=format&amp;fit=crop&amp;w=1000&amp;q=82" loading="lazy" decoding="async" alt="滑板腾空动作的主题配图" data-life-alt="skateAlt"><span class="life-sticker">02 / ROLL ON</span></div>
+    <div class="life-meta"><h3><span data-life-key="skateTitle">滑板</span><span>SKATEBOARD</span></h3><p data-life-key="skateText">喜欢风从身边掠过的感觉，也喜欢一次次练习、摔倒、再站起来。</p></div>
+   </article>
+   <article class="life-card life-card--kendama">
+    <div class="life-visual">
+     <div class="life-kendama-art" role="img" aria-label="剑玉原创矢量插画"><svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M118 70C139 89 133 100 118 122" fill="none" stroke="#2f3932" stroke-width="3" stroke-dasharray="6 5"/><circle cx="139" cy="55" r="34" fill="#f05b66" stroke="#253329" stroke-width="6"/><circle cx="130" cy="42" r="9" fill="#ffb0ac" opacity=".9"/><path d="M90 133L140 133L135 146L125 146L125 185Q115 197 105 185L105 146L96 146Z" fill="#e5a365" stroke="#283930" stroke-width="6" stroke-linejoin="round"/><path d="M112 122L119 122L119 144L112 144Z" fill="#edd6ac" stroke="#283930" stroke-width="4"/><path d="M75 121Q90 117 96 127L96 140Q84 149 74 139Z" fill="#b87f46" stroke="#283930" stroke-width="5"/><path d="M140 127Q149 118 163 123L165 139Q152 148 140 138Z" fill="#b87f46" stroke="#283930" stroke-width="5"/><path d="M106 123L116 94L127 123Z" fill="#e5a365" stroke="#283930" stroke-width="5" stroke-linejoin="round"/><path d="M106 164H125" stroke="#a67044" stroke-width="4"/><path d="M157 58L170 49M160 69L176 72" stroke="#fff0d3" stroke-width="4" stroke-linecap="round"/></svg></div>
+     <span class="life-sticker">03 / ONE MORE TRY</span>
+    </div>
+    <div class="life-meta"><h3><span data-life-key="kendamaTitle">剑玉</span><span>KENDAMA</span></h3><p data-life-key="kendamaText">一颗球、一根木柄，挑战的是耐心、手感和一点点不服输。</p></div>
+   </article>
+   <article class="life-card life-card--hike">
+    <div class="life-visual"><img src="https://images.unsplash.com/photo-1504280317859-9c6cce36bca8?auto=format&amp;fit=crop&amp;w=900&amp;q=82" loading="lazy" decoding="async" alt="山间徒步路径的主题配图" data-life-alt="hikeAlt"><span class="life-sticker">04 / GO OUTSIDE</span></div>
+    <div class="life-meta"><h3><span data-life-key="hikeTitle">徒步与户外</span><span>TRAIL / OUTDOORS</span></h3><p data-life-key="hikeText">城市之外还有山、海和森林。走进自然，让思路和呼吸都重新打开。</p></div>
+   </article>
+   <article class="life-card life-card--iceland">
+    <div class="life-visual"><img src="https://images.unsplash.com/photo-1543310465-f4d3ca5a2a25?auto=format&amp;fit=crop&amp;w=1100&amp;q=82" loading="lazy" decoding="async" alt="冰岛瀑布自然景观的主题配图，非志愿服务现场" data-life-alt="iceAlt"><span class="life-sticker">05 / DO SOMETHING GOOD</span></div>
+    <div class="life-meta"><h3><span data-life-key="icelandTitle">冰岛环境志愿者</span><span>ICELAND / VOLUNTEER</span></h3><p data-life-key="icelandText">曾在冰岛参与环境志愿服务。置身壮阔的自然，也更真切地感受到保护环境的意义。</p></div>
+   </article>
+  </div>
+  <div class="life-tail"><span data-life-key="outro">STAY CURIOUS. STAY IN MOTION. ↗</span><span data-life-key="disclaimer">图片为兴趣主题配图（Unsplash），并非本人活动实拍；剑玉为原创插画。</span></div>
+ </div>
+</section>
+
 <section id="journey" class="shell lower"><article><div class="eyebrow">01 / BUSINESS</div><h3>从商业问题出发</h3><p>游戏发行、内容营销、品牌联名和项目协作，强调策略与可验证的执行过程。</p><a href="#" data-open="business">查看商业项目 ↗</a></article><article><div class="eyebrow">02 / CREATIVE</div><h3>把想法做成作品</h3><p>从 AI 广告、数字影像到交互原型，持续探索技术与叙事如何服务用户体验。</p><a href="#" data-open="creative">查看创意项目 ↗</a></article><article><div class="eyebrow">03 / GLOBAL</div><h3>从中国到日本</h3><p>将中国市场的商业经验延伸至日本：涵盖 AI 创意研究、品牌赴日项目落地，以及中日英三语跨文化协作。</p><a href="#" data-open="career">了解经历 ↗</a></article></section>
 <section class="contact-section" id="contact" aria-labelledby="contactHeading">
 <div class="shell"><div class="contact-frame">
@@ -154,12 +234,20 @@ const initialParams=window.location.search,initialHash=window.location.hash.slic
 function cleanPortfolioUrl(){if(window.location.pathname!=="/portfolio"||window.location.search||window.location.hash)window.history.replaceState(window.history.state,"","/portfolio")}
 cleanPortfolioUrl();
 window.addEventListener("hashchange",cleanPortfolioUrl);
-document.querySelectorAll('a[href="#top"],a[href="#works"],a[href="#contact"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.querySelector(a.getAttribute("href"))?.scrollIntoView({behavior:"smooth",block:"start"});cleanPortfolioUrl()}));
+document.querySelectorAll('a[href="#top"],a[href="#works"],a[href="#life"],a[href="#contact"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.querySelector(a.getAttribute("href"))?.scrollIntoView({behavior:"smooth",block:"start"});cleanPortfolioUrl()}));
 const $=id=>document.getElementById(id);const elem=(tag,cl,txt)=>{let x=document.createElement(tag);if(cl)x.className=cl;if(txt!=null)x.textContent=String(txt);return x};let data,originalData,translations,locale="zh",dialogBefore=null,backPage=null,chatIndex=0;
 const allowedImage=v=>typeof v==="string" && (/^https:\/\//i.test(v)||/^(?:\.\.?\/|assets\/|\/portfolio-v2\/)[a-zA-Z0-9_\-./%]+$/.test(v));
 const allowedLink=v=>typeof v==="string"&& (/^https:\/\//i.test(v)||/^(?:\.\.?\/|\/|#)[a-zA-Z0-9_\-./%?=&]+$/.test(v));
 
-const staticTranslations={"zh":{"menu":["首页","项目展示","联络方式"],"selected":["精选作品与实际项目","查看全部 ↗"],"contact":["联络方式","发送邮件","复制微信号","期待你的来信，也期待下一次有趣的合作。"],"bottom":["从商业问题出发","把想法做成作品","从中国到日本"],"more":["查看商业项目 ↗","查看创意项目 ↗","了解经历 ↗"],"lower":["游戏发行、内容营销、品牌联名和项目协作，强调策略与可验证的执行过程。","从 AI 广告、数字影像到交互原型，持续探索技术与叙事如何服务用户体验。","将中国市场的商业经验延伸至日本：涵盖 AI 创意研究、品牌赴日项目落地，以及中日英三语跨文化协作。"],"misc":{"about":"我的介绍","now":"目前","career":"职业与学习轨迹","japan":"日本与跨文化实践","intro":"项目背景","role":"我的职责","result":"项目结果","note":"补充说明","all":"全部作品","allDesc":"按项目查看具体职责、案例背景和作品链接。","back":"← 返回项目目录","mail":"发送邮件 ↗","link":"查看相关链接 ↗","empty":"暂无精选作品","old":"旧版个人网站 ↗","admin":"内容管理（需授权） ↗"}},"ja":{"menu":["ホーム","プロジェクト","お問い合わせ"],"selected":["主なプロジェクト・実績","すべて見る ↗"],"contact":["お問い合わせ","メールを送る","WeChat IDをコピー","ご連絡をお待ちしています。一緒に面白いことを始めましょう。"],"bottom":["課題から考える","アイデアを形にする","中国から日本へ"],"more":["ビジネス実績を見る ↗","制作作品を見る ↗","経歴を見る ↗"],"lower":["ゲームパブリッシング、コンテンツマーケティング、ブランド協業を通じた戦略立案と実行。","AI広告、デジタル映像、インタラクティブな試作を通して、技術と物語の可能性を探ります。","中国で培ったマーケティング経験を、日本でのAI研究、市場開拓、国際協業につなげています。"],"misc":{"about":"自己紹介","now":"現在","career":"職務・学習経歴","japan":"日本での活動・国際協業","intro":"プロジェクト概要","role":"担当業務","result":"成果","note":"補足","all":"全プロジェクト","allDesc":"担当内容や実績、作品の詳細をご紹介します。","back":"← プロジェクト一覧に戻る","mail":"メールを送る ↗","link":"作品・関連リンク ↗","empty":"掲載作品はありません","old":"旧ポートフォリオ ↗","admin":"編集・管理（要認証） ↗"}},"en":{"menu":["Home","Projects","Contact"],"selected":["Selected projects and professional work","View all ↗"],"contact":["Get in touch","Send email","Copy WeChat ID","I'd love to hear from you. Let's build something interesting together."],"bottom":["Start with the problem","Make ideas tangible","From China to Japan"],"more":["Business projects ↗","Creative work ↗","Explore my journey ↗"],"lower":["Strategic marketing and delivery across game publishing, content, and brand partnerships.","Exploring how AI-powered films, digital storytelling, and interactive prototypes enhance user experiences.","Bringing China-market experience into AI research, market-entry projects, and international collaboration in Japan."],"misc":{"about":"About me","now":"Currently","career":"Career & Education","japan":"Japan & Cross-Cultural Work","intro":"Overview","role":"My role","result":"Results","note":"Additional notes","all":"All projects","allDesc":"Explore the scope, responsibilities, results, and links for each project.","back":"← Back to projects","mail":"Send email ↗","link":"Explore project ↗","empty":"No projects yet","old":"Original site ↗","admin":"Content editor (authorized) ↗"}}};
+
+const lifeCopy={"zh":{"subhead":"我的工作之外 / PLAY MODE ON","intro":"认真工作，也认真玩。用音乐、街头、山野和真实的行动，去认识更多面的世界。","danceTitle":"热爱跳舞","danceText":"音乐响起来，就想跟着节奏动起来。跳舞是我的能量补给，也是另一种表达方式。","skateTitle":"滑板","skateText":"喜欢风从身边掠过的感觉，也喜欢一次次练习、摔倒、再站起来。","kendamaTitle":"剑玉","kendamaText":"一颗球、一根木柄，挑战的是耐心、手感和一点点不服输。","hikeTitle":"徒步与户外","hikeText":"城市之外还有山、海和森林。走进自然，让思路和呼吸都重新打开。","icelandTitle":"冰岛环境志愿者","icelandText":"曾在冰岛参与环境志愿服务。置身壮阔的自然，也更真切地感受到保护环境的意义。","outro":"STAY CURIOUS. STAY IN MOTION. ↗","disclaimer":"图片为兴趣主题配图（Unsplash），并非本人活动实拍；剑玉为原创插画。","danceAlt":"舞蹈与身体动作的主题配图","skateAlt":"滑板腾空动作的主题配图","hikeAlt":"山间徒步路径的主题配图","iceAlt":"冰岛瀑布自然景观的主题配图，非志愿服务现场"},"ja":{"subhead":"仕事以外の私 / PLAY MODE ON","intro":"仕事も、遊びも、思いきり。音楽やストリートカルチャー、自然との出会いを通して、世界をもっと広く知りたいと思っています。","danceTitle":"ダンスが大好き","danceText":"音楽が流れると、自然と体が動き出します。Hip-Hopは私のエネルギー源であり、大切な自己表現です。","skateTitle":"スケートボード","skateText":"風を切って進む感覚が好き。何度も挑戦して、転んで、また立ち上がる時間も楽しんでいます。","kendamaTitle":"けん玉","kendamaText":"玉と木の道具だけなのに、奥が深い。集中力と感覚を磨きながら、少しずつ上達するのが楽しいです。","hikeTitle":"ハイキング・アウトドア","hikeText":"街を離れて、山や海、森へ。自然の中を歩くと、心も頭もすっきりします。","icelandTitle":"アイスランドでの環境保全ボランティア","icelandText":"アイスランドで環境保全のボランティア活動に参加しました。雄大な自然を前に、環境を守ることの大切さを実感しました。","outro":"STAY CURIOUS. STAY IN MOTION. ↗","disclaimer":"写真は活動のイメージ画像（Unsplash）で、本人の活動記録ではありません。けん玉はオリジナルイラストです。","danceAlt":"ダンスのイメージ写真","skateAlt":"スケートボードのイメージ写真","hikeAlt":"ハイキングのイメージ写真","iceAlt":"アイスランドの自然のイメージ写真。ボランティア活動中の記録ではありません"},"en":{"subhead":"BEYOND THE WORK / PLAY MODE ON","intro":"I bring the same curiosity to life as I do to work—from music and street culture to trails, open skies, and taking action for the environment.","danceTitle":"Dancing","danceText":"When the music starts, I move. Hip-hop is my creative outlet and a way to recharge.","skateTitle":"Skateboarding","skateText":"I love the freedom of rolling forward—and the persistence it takes to fall, get up, and try again.","kendamaTitle":"Kendama","kendamaText":"A ball and a wooden handle, with endless room to improve. I love the focus and small victories.","hikeTitle":"Hiking & Outdoors","hikeText":"Beyond the city are mountains, coastlines, and forests. Getting outside helps me reset and find fresh perspectives.","icelandTitle":"Environmental Volunteer in Iceland","icelandText":"I participated in environmental volunteer work in Iceland, an experience that deepened my appreciation of nature and conservation.","outro":"STAY CURIOUS. STAY IN MOTION. ↗","disclaimer":"Lifestyle images are illustrative (Unsplash), not photos of my activities. Kendama artwork is original.","danceAlt":"Illustrative image of dynamic movement and dance","skateAlt":"Illustrative photo of a skateboarder jumping","hikeAlt":"Illustrative photo of a mountain hiking trail","iceAlt":"Illustrative Iceland landscape; not a volunteer activity photo"}};
+function applyLifeLanguage(){
+ const copy=lifeCopy[locale]||lifeCopy.zh;
+ document.querySelectorAll("[data-life-key]").forEach(el=>{const key=el.dataset.lifeKey;if(copy[key])el.textContent=copy[key]});
+ document.querySelectorAll("[data-life-alt]").forEach(el=>{const key=el.dataset.lifeAlt;if(copy[key])el.alt=copy[key]});
+}
+
+const staticTranslations={"zh":{"menu":["首页","项目展示","生活切片","联络方式"],"selected":["精选作品与实际项目","查看全部 ↗"],"contact":["联络方式","发送邮件","复制微信号","期待你的来信，也期待下一次有趣的合作。"],"bottom":["从商业问题出发","把想法做成作品","从中国到日本"],"more":["查看商业项目 ↗","查看创意项目 ↗","了解经历 ↗"],"lower":["游戏发行、内容营销、品牌联名和项目协作，强调策略与可验证的执行过程。","从 AI 广告、数字影像到交互原型，持续探索技术与叙事如何服务用户体验。","将中国市场的商业经验延伸至日本：涵盖 AI 创意研究、品牌赴日项目落地，以及中日英三语跨文化协作。"],"misc":{"about":"我的介绍","now":"目前","career":"职业与学习轨迹","japan":"日本与跨文化实践","intro":"项目背景","role":"我的职责","result":"项目结果","note":"补充说明","all":"全部作品","allDesc":"按项目查看具体职责、案例背景和作品链接。","back":"← 返回项目目录","mail":"发送邮件 ↗","link":"查看相关链接 ↗","empty":"暂无精选作品","old":"旧版个人网站 ↗","admin":"内容管理（需授权） ↗"}},"ja":{"menu":["ホーム","プロジェクト","ライフスタイル","お問い合わせ"],"selected":["主なプロジェクト・実績","すべて見る ↗"],"contact":["お問い合わせ","メールを送る","WeChat IDをコピー","ご連絡をお待ちしています。一緒に面白いことを始めましょう。"],"bottom":["課題から考える","アイデアを形にする","中国から日本へ"],"more":["ビジネス実績を見る ↗","制作作品を見る ↗","経歴を見る ↗"],"lower":["ゲームパブリッシング、コンテンツマーケティング、ブランド協業を通じた戦略立案と実行。","AI広告、デジタル映像、インタラクティブな試作を通して、技術と物語の可能性を探ります。","中国で培ったマーケティング経験を、日本でのAI研究、市場開拓、国際協業につなげています。"],"misc":{"about":"自己紹介","now":"現在","career":"職務・学習経歴","japan":"日本での活動・国際協業","intro":"プロジェクト概要","role":"担当業務","result":"成果","note":"補足","all":"全プロジェクト","allDesc":"担当内容や実績、作品の詳細をご紹介します。","back":"← プロジェクト一覧に戻る","mail":"メールを送る ↗","link":"作品・関連リンク ↗","empty":"掲載作品はありません","old":"旧ポートフォリオ ↗","admin":"編集・管理（要認証） ↗"}},"en":{"menu":["Home","Projects","Life","Contact"],"selected":["Selected projects and professional work","View all ↗"],"contact":["Get in touch","Send email","Copy WeChat ID","I'd love to hear from you. Let's build something interesting together."],"bottom":["Start with the problem","Make ideas tangible","From China to Japan"],"more":["Business projects ↗","Creative work ↗","Explore my journey ↗"],"lower":["Strategic marketing and delivery across game publishing, content, and brand partnerships.","Exploring how AI-powered films, digital storytelling, and interactive prototypes enhance user experiences.","Bringing China-market experience into AI research, market-entry projects, and international collaboration in Japan."],"misc":{"about":"About me","now":"Currently","career":"Career & Education","japan":"Japan & Cross-Cultural Work","intro":"Overview","role":"My role","result":"Results","note":"Additional notes","all":"All projects","allDesc":"Explore the scope, responsibilities, results, and links for each project.","back":"← Back to projects","mail":"Send email ↗","link":"Explore project ↗","empty":"No projects yet","old":"Original site ↗","admin":"Content editor (authorized) ↗"}}};
 function tr(k){return staticTranslations[locale]?.misc[k]||staticTranslations.zh.misc[k]||k}
 function applyLanguage(code){
  locale=["zh","ja","en"].includes(code)?code:"zh";document.documentElement.lang=locale==="zh"?"zh-CN":locale;
@@ -179,7 +267,7 @@ function applyLanguage(code){
  document.querySelector('footer a[href="../portfolio-v2/admin/"]').textContent=tx.misc.admin;
  document.querySelector(".hint").textContent=t?.characterHint||"01 / 自我介绍　[点击角色]";
  document.querySelectorAll(".contact-note").forEach((e,i)=>e.textContent=t?.contactNotes?.[i]||["工作机会、项目合作与正式沟通","欢迎添加微信，轻松交流"][i]);
- chatIndex=0;renderMain();close();
+ chatIndex=0;applyLifeLanguage();renderMain();close();
 }
 document.querySelectorAll(".lang-switch button").forEach(b=>b.addEventListener("click",()=>applyLanguage(b.dataset.lang)));
 
@@ -203,7 +291,7 @@ function openProject(id,origin){const p=(data.projects||[]).find(x=>x.id===id&&x
 function nextBubble(){const lines=data?.identity?.greeting||[];if(!lines.length)return;chatIndex=(chatIndex+1)%lines.length;$("speech").textContent=lines[chatIndex];$("character").classList.remove("board-spin");void $("character").offsetWidth;$("character").classList.add("board-spin")} $("character").addEventListener("click",nextBubble); setInterval(()=>{if(data&&!document.hidden)nextBubble()},2200);
 async function copyWechat(){const value=$("wechatText").textContent.trim();if(!value)return;try{if(!navigator.clipboard||!window.isSecureContext)throw Error("clipboard unsupported");await navigator.clipboard.writeText(value);showToast("微信号已复制："+value)}catch(err){let x=elem("textarea");x.value=value;x.style.position="fixed";x.style.opacity="0";document.body.append(x);x.focus();x.select();const ok=document.execCommand("copy");x.remove();showToast(ok?"微信号已复制："+value:"微信号："+value+"，可长按文字复制")}}$("copyWechat").addEventListener("click",copyWechat);
 $("allWorks").addEventListener("click",()=>openSection("all"));$("closeDrawer").addEventListener("click",close);$("shade").addEventListener("click",close);document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});document.querySelectorAll("[data-open]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openSection(a.dataset.open)}));
-fetch("../portfolio-v2/content.json?refresh="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(async j=>{originalData=j;try{const z=await fetch("./i18n.json",{cache:"no-store"});translations=await z.json()}catch(e){console.warn("i18n unavailable",e);translations={}}applyLanguage(new URLSearchParams(initialParams).get("lang")||"zh");let hash=initialHash;if(["about","career","business","creative"].includes(hash))openSection(hash);else if(["top","works","contact"].includes(hash))requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:"start"}))}).catch(err=>{$("speech").textContent="作品内容加载失败，请稍后刷新。";console.error(err)});
+fetch("../portfolio-v2/content.json?refresh="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(async j=>{originalData=j;try{const z=await fetch("./i18n.json",{cache:"no-store"});translations=await z.json()}catch(e){console.warn("i18n unavailable",e);translations={}}applyLanguage(new URLSearchParams(initialParams).get("lang")||"zh");let hash=initialHash;if(["about","career","business","creative"].includes(hash))openSection(hash);else if(["top","works","life","contact"].includes(hash))requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:"start"}))}).catch(err=>{$("speech").textContent="作品内容加载失败，请稍后刷新。";console.error(err)});
 })();
 </script>
 </body></html>
