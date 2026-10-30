@@ -59,6 +59,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(max-width:840px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.hero{padding-block:45px}.hero h1{font-size:clamp(50px,11vw,90px)}}
 @media(max-width:490px){.topbar .shell{height:62px;gap:8px}.brand{font-size:23px}.back{font-size:10px}.languages{margin-left:4px}.languages button{padding:4px}.gallery{gap:10px}.frame-placeholder{padding:12px}.frame-meta b{font-size:11px}.frame-meta small{font-size:9px}.hero h1{font-size:clamp(42px,11vw,61px)}.hero-bottom p{font-size:12px}.info{flex-direction:column;align-items:start;gap:4px}.viewer{padding:15px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+/* Original street photographs: true aspect ratios, no artificial filters or crop */
+.gallery{display:block;column-count:3;column-gap:22px;column-fill:balance;margin-top:25px}
+.frame{display:inline-block;width:100%;min-width:0;break-inside:avoid;page-break-inside:avoid;margin:0 0 24px;vertical-align:top}
+.frame-visual{aspect-ratio:auto;position:relative;background:#e6e8e0;overflow:hidden;border:1px solid #d7d9cc}
+.frame-visual:after{display:none}
+.frame-visual img,.frame-visual.loaded img{display:block;width:100%;height:auto;object-fit:contain;max-width:100%;filter:none;cursor:zoom-in;transition:none}
+.frame-visual.loaded:hover img{transform:none}
+.frame-meta{padding-top:11px;align-items:flex-start;gap:8px}
+.frame-meta b{font-size:11px;line-height:1.5;letter-spacing:.005em}
+.frame-meta small{font-size:9px;line-height:1.5;text-align:right}
+.gallery-note{margin-top:30px;margin-bottom:65px}
+@media(max-width:1000px){.gallery{column-count:2;column-gap:17px}.frame{margin-bottom:18px}}
+@media(max-width:600px){.gallery{column-count:1;max-width:520px;margin:20px auto 0}.frame{margin-bottom:24px}.hero{padding-block:42px 39px}.gallery-note{margin-top:23px;margin-bottom:52px}}
+
 </style>
 </head>
 <body>
@@ -72,12 +87,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <section class="shell" aria-labelledby="galleryTitle">
  <div class="info"><h2 id="galleryTitle" data-i18n="heading">SELECTED FRAMES / 摄影街拍</h2><span data-i18n="status">个人摄影作品展示空间 · 待上传作品</span></div>
  <div class="gallery">
-  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 001</b><span>01</span><small>STREET / LIGHT</small></div><img data-photo="photography/01.jpg" alt="Photography frame 01"></div><div class="frame-meta"><b>01 / LIGHT</b><small>STREET</small></div></article>
-  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 002</b><span>02</span><small>PEOPLE / MOTION</small></div><img data-photo="photography/02.jpg" alt="Photography frame 02"></div><div class="frame-meta"><b>02 / MOTION</b><small>STREET</small></div></article>
-  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 003</b><span>03</span><small>CITY / RHYTHM</small></div><img data-photo="photography/03.jpg" alt="Photography frame 03"></div><div class="frame-meta"><b>03 / CITY</b><small>STREET</small></div></article>
-  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 004</b><span>04</span><small>SHADOW / TIME</small></div><img data-photo="photography/04.jpg" alt="Photography frame 04"></div><div class="frame-meta"><b>04 / SHADOW</b><small>STREET</small></div></article>
-  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 005</b><span>05</span><small>DETAIL / FORM</small></div><img data-photo="photography/05.jpg" alt="Photography frame 05"></div><div class="frame-meta"><b>05 / DETAIL</b><small>STREET</small></div></article>
-  <article class="frame"><div class="frame-visual"><div class="frame-placeholder"><b>FRAME 006</b><span>06</span><small>EVERYDAY / LIFE</small></div><img data-photo="photography/06.jpg" alt="Photography frame 06"></div><div class="frame-meta"><b>06 / EVERYDAY</b><small>STREET</small></div></article>
+  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/01.jpg" width="819" height="1024" loading="lazy" decoding="async" alt="街道上的摩托三轮车与满载的报刊"></div><div class="frame-meta"><b>01 / MOBILE CITY</b><small>STREET / MOVEMENT</small></div></article>
+  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/02.jpg" width="1152" height="1536" loading="lazy" decoding="async" alt="白色墙壁前的两个人、自行车与红色路锥"></div><div class="frame-meta"><b>02 / A MOMENT APART</b><small>STREET / QUIET</small></div></article>
+  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/03.jpg" width="710" height="1536" loading="lazy" decoding="async" alt="月亮、骑行者与夜晚街头的四格影像"></div><div class="frame-meta"><b>03 / NIGHT NOTES</b><small>AFTER DARK / DIARY</small></div></article>
+  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/04.jpg" width="710" height="1536" loading="lazy" decoding="async" alt="夜晚城市里不同人物的四格影像"></div><div class="frame-meta"><b>04 / THE CITY AT NIGHT</b><small>PEOPLE / NIGHT</small></div></article>
+  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/05.jpg" width="1152" height="1536" loading="lazy" decoding="async" alt="彩虹伞下的街头摊贩与红白相间的墙"></div><div class="frame-meta"><b>05 / UNDER THE COLOR</b><small>CITY / CONTRAST</small></div></article>
+  <article class="frame"><div class="frame-visual"><img data-photo="./assets/photography/06.jpg" width="1536" height="1085" loading="lazy" decoding="async" alt="雕塑前经过的马车与街头人群"></div><div class="frame-meta"><b>06 / PASSING SCENE</b><small>TRAVEL / OBSERVATION</small></div></article>
  </div>
  <div class="gallery-note"><h3 data-i18n="noteHeading">这是摄影作品的独立展示入口。</h3><p data-i18n="note">目前还没有上传本人拍摄的原片，因此先保留六个统一比例的作品位置，不会将网络素材当作我的摄影作品展示。将照片依次放入 portfolio/photography/01.jpg 至 06.jpg 后，会自动显示，并支持点击放大。</p></div>
 </section>
@@ -86,10 +101,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <div class="viewer" role="dialog" aria-modal="true" aria-label="Photography image viewer" id="viewer"><button type="button" id="viewerClose" aria-label="Close">×</button><img alt="" id="viewerImg"></div>
 <script>
 (()=>{
-const T={
-zh:{back:"← 返回作品集",intro:"喜欢城市里那些没有剧本的瞬间。光线、街角、行人和偶然的构图，都是值得被记录的故事。",heading:"SELECTED FRAMES / 摄影街拍",status:"个人摄影作品展示空间 · 待上传作品",noteHeading:"这是摄影作品的独立展示入口。",note:"目前还没有上传本人拍摄的原片，因此先保留六个统一比例的作品位置，不会将网络素材当作我的摄影作品展示。将照片依次放入 portfolio/photography/01.jpg 至 06.jpg 后，会自动显示，并支持点击放大。",backFoot:"← 返回作品集"},
-ja:{back:"← ポートフォリオに戻る",intro:"街角の光、人の動き、ふとした瞬間。何気ない日常に潜むストーリーを、写真で切り取っていきたいと思っています。",heading:"SELECTED FRAMES / ストリートフォト",status:"個人写真のギャラリー · 作品は準備中",noteHeading:"写真作品のための独立ギャラリーです。",note:"本人が撮影した写真はまだアップロードされていません。現在は6枚分の作品スペースを用意しています。Web上の参考写真を自分の作品として掲載することはありません。portfolio/photography/01.jpg ～ 06.jpg に画像を追加すると、自動で表示・拡大できます。",backFoot:"← ポートフォリオへ"},
-en:{back:"← Back to portfolio",intro:"I love the unscripted moments of city life—the light, the movement, the passersby, and the unexpected compositions that tell a story.",heading:"SELECTED FRAMES / STREET PHOTOGRAPHY",status:"Personal photography gallery · Awaiting original photos",noteHeading:"A dedicated space for my photography.",note:"My original photographs have not been uploaded yet. These six frames are intentionally placeholders—not someone else's photos presented as my work. Upload portfolio/photography/01.jpg through 06.jpg to display the images automatically, with click-to-zoom.",backFoot:"← Back to portfolio"}};
+const T={"zh":{"back":"← 返回作品集","intro":"没有剧本的街头瞬间。人、光、建筑与偶然的相遇，组成我持续观察和记录的城市。","heading":"SELECTED FRAMES / 摄影街拍","status":"6 组真实摄影作品 · 点击图片放大","noteHeading":"关于这些照片","note":"六组照片保留原有的色彩、颗粒与构图比例，其中两组为多画面拼贴。这里记录的是未经编排的街头瞬间，而不是经过 AI 重绘的画面。","backFoot":"← 返回作品集"},"ja":{"back":"← ポートフォリオに戻る","intro":"街角の何気ない瞬間。人、光、建物、偶然の出会いを通して、日常の街を見つめ、記録しています。","heading":"SELECTED FRAMES / ストリートフォト","status":"オリジナル写真6作品 · クリックして拡大","noteHeading":"写真について","note":"写真は元の色合いと質感、縦横比を尊重して掲載しています。うち2作品は複数の写真を組み合わせた構成です。AIによる再描画ではなく、日常の街角を切り取った記録です。","backFoot":"← ポートフォリオへ"},"en":{"back":"← Back to portfolio","intro":"Unscripted moments of the street. People, light, architecture and chance encounters make up the cities I keep observing and documenting.","heading":"SELECTED FRAMES / STREET PHOTOGRAPHY","status":"6 original photo works · Click to enlarge","noteHeading":"About the photographs","note":"These photographs retain their original colors, textures and proportions. Two works are multi-frame compositions. They are documentary moments, not AI-generated recreations.","backFoot":"← Back to portfolio"}};
 let locale=new URLSearchParams(location.search).get("lang")||"zh";if(!T[locale])locale="zh";
 function applyLang(lang){locale=lang;document.documentElement.lang=lang==="zh"?"zh-CN":lang;document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=T[lang][el.dataset.i18n]||el.textContent});document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)))}
 document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
